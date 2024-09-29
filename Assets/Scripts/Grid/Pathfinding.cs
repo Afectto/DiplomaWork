@@ -52,12 +52,7 @@ public class Pathfinding : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            var mosePosition = Utils.GetMouseWorldPosition();
-            var gridObject = _grid.GetGridObject(mosePosition);
-            gridObject.isWalkable = !gridObject.isWalkable;
-        }
+
     }
 
     public List<GridObject> FindPath(FindPathSetting setting, bool canDiagonalMove)

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    [SerializeField] private GameObject tilePrefab;
     private Pathfinding _pathfinding;
     private Grid<GridObject> _grid;
     private int _width;
@@ -21,11 +22,23 @@ public class MapGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            _grid ??= FindAnyObjectByType<CreateGridObject>().Grid;
             _pathfinding = FindAnyObjectByType<Pathfinding>();
-            _grid = FindAnyObjectByType<CreateGridObject>().Grid;
             _width = _grid.GetWight();
             _height = _grid.GetHeight();
-            GenerateMap(true, true);
+            GenerateMap(false, true);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            _grid ??= FindAnyObjectByType<CreateGridObject>().Grid;
+            var mosePosition = Utils.GetMouseWorldPosition();
+            var gridObject = _grid.GetGridObject(mosePosition);
+            gridObject.isWalkable = !gridObject.isWalkable;
+            float cellSize = _grid.GetCellSize();
+            Vector3 gridOrigin = _grid.GetOriginPosition();
+            Vector3 currentNodeCenter = gridOrigin + new Vector3(gridObject.x, gridObject.y) * cellSize +
+                                        new Vector3(cellSize / 2, cellSize / 2);
+            CreateTile(currentNodeCenter, Color.grey, 2);
         }
     }
     
@@ -37,12 +50,52 @@ public class MapGenerator : MonoBehaviour
         
         GeneratePath(allowDiagonal);
         
+        float cellSize = _grid.GetCellSize();
+        Vector3 gridOrigin = _grid.GetOriginPosition();
+        for (int y = 0; y < _height; y++)
+        {
+            for (int x = 0; x < _width; x++)
+            {
+                Vector3 currentNodeCenter = gridOrigin + new Vector3(x, y) * cellSize +
+                                            new Vector3(cellSize / 2, cellSize / 2);
+                switch (_map[x, y])
+                {
+                    case 0 when x == _startPoint.x && y == _startPoint.y: // Стартовая точка
+                        CreateTile(currentNodeCenter, Color.cyan, 1);
+                        break;
+                    case 0 when x == _endPoint.x && y == _endPoint.y: // Конечная точка
+                        CreateTile(currentNodeCenter, Color.magenta, 1);
+                        break;
+                    case int n when n > 100: // Точки опасности
+                        CreateTile(currentNodeCenter, Color.red);
+                        break;
+                    case int n when n > 1: // Точки интереса
+                        CreateTile(currentNodeCenter, Color.yellow);
+                        break;
+                    case 1: // Ячейка пути
+                        CreateTile(currentNodeCenter, Color.white);
+                        break;
+                    default: // Пустая клетка
+                        CreateTile(currentNodeCenter, Color.black);
+                        break;
+                }
+            }
+        }
+
         if (isDrawingPath)
         {
             DrawMap();
         }
     }
 
+    private void CreateTile(Vector3 pos, Color color, int sortingOrder = 0)
+    {
+        var tile = Instantiate(tilePrefab, transform);
+        tile.transform.position = pos;
+        tile.GetComponentInChildren<SpriteRenderer>().color = color;
+        tile.GetComponentInChildren<SpriteRenderer>().sortingOrder = sortingOrder;
+    }
+    
     private void InitializeMap()
     {
         _map = new int[_width, _height];
@@ -86,7 +139,7 @@ public class MapGenerator : MonoBehaviour
         return new Vector2Int(x, y);
     }
 
-    private void GeneratePath(bool allowDiagonal)
+    private List<GridObject> GeneratePath(bool allowDiagonal)
     {
         var pathSetting = new FindPathSetting 
         { 
@@ -104,6 +157,8 @@ public class MapGenerator : MonoBehaviour
                 _map[node.x, node.y] = 1; // Путь
             }
         }
+
+        return path;
     }
 
     private void DrawMap()
