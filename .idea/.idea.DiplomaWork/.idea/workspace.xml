@@ -22,7 +22,26 @@
     <list default="true" id="4a452b9b-4b28-4b72-9f26-3c82095537af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CodeExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CodeExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid/Pathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid/Pathfinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid/Utils/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid/Utils/Utils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +60,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/Pathfinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B649EE56-DE85-4DCF-A111-602D7B9FFF6D/32/ParameterValidationHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/Utils/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D8783C7-AF04-4231-8483-A199A473C55B/0b/b4638cfc/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F843D796-055E-4DEA-A447-E7BA073CFF5F/ac/5581231a/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02B90F1C-0DFB-49A1-ADFD-6DA071D5B611/a5/2bbd657a/EventDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5B813995-9670-4241-9E44-AFC6B56DE16C/3/CSharpCodeProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/905CC628-39E1-4294-806C-19DCC852D0A5/2/CSharpScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/645666A8-CEA4-4BF5-905E-0EF193655174/43/c49a2cb5/CodeCompiler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63C445D7-76C7-4089-9561-3F2852622992/28/5b7ebcfc/RenderChain.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -60,8 +81,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Grid/Test.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Grid/Utils/Utils.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Grid/Base/Grid.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Grid/Pathfinding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Grid/CreateGridObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Grid/Pathfinding.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +132,7 @@
       <workItem from="1726987279232" duration="5008000" />
       <workItem from="1726992367791" duration="117000" />
       <workItem from="1726992556615" duration="8452000" />
-      <workItem from="1727585956829" duration="9609000" />
+      <workItem from="1727585956829" duration="12018000" />
     </task>
     <servers />
   </component>
@@ -134,74 +156,74 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="413" height="464" key="DebuggerActiveHint" timestamp="1726992773829">
+    <state width="413" height="464" key="DebuggerActiveHint" timestamp="1727599516566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="413" height="464" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1726992773829" />
-    <state width="1877" height="167" key="GridCell.Tab.0.bottom" timestamp="1727595091295">
+    <state width="413" height="464" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1727599516566" />
+    <state width="1877" height="167" key="GridCell.Tab.0.bottom" timestamp="1727599638371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091295" />
-    <state width="1877" height="167" key="GridCell.Tab.0.center" timestamp="1727595091295">
+    <state width="1877" height="167" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638371" />
+    <state width="1877" height="167" key="GridCell.Tab.0.center" timestamp="1727599638371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091295" />
-    <state width="1877" height="167" key="GridCell.Tab.0.left" timestamp="1727595091295">
+    <state width="1877" height="167" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638371" />
+    <state width="1877" height="167" key="GridCell.Tab.0.left" timestamp="1727599638371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091294" />
-    <state width="1877" height="167" key="GridCell.Tab.0.right" timestamp="1727595091295">
+    <state width="1877" height="167" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638371" />
+    <state width="1877" height="167" key="GridCell.Tab.0.right" timestamp="1727599638371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091295" />
-    <state width="1877" height="167" key="GridCell.Tab.1.bottom" timestamp="1727595098885">
+    <state width="1877" height="167" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638371" />
+    <state width="1877" height="167" key="GridCell.Tab.1.bottom" timestamp="1727599645086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727595098885" />
-    <state width="1877" height="167" key="GridCell.Tab.1.center" timestamp="1727595098885">
+    <state width="1877" height="167" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727599645086" />
+    <state width="1877" height="167" key="GridCell.Tab.1.center" timestamp="1727599645086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727595098885" />
-    <state width="1877" height="167" key="GridCell.Tab.1.left" timestamp="1727595098885">
+    <state width="1877" height="167" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727599645086" />
+    <state width="1877" height="167" key="GridCell.Tab.1.left" timestamp="1727599645086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727595098885" />
-    <state width="1877" height="167" key="GridCell.Tab.1.right" timestamp="1727595098885">
+    <state width="1877" height="167" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727599645086" />
+    <state width="1877" height="167" key="GridCell.Tab.1.right" timestamp="1727599645086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727595098885" />
-    <state width="1877" height="167" key="GridCell.Tab.2.bottom" timestamp="1727595091202">
+    <state width="1877" height="167" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727599645086" />
+    <state width="1877" height="167" key="GridCell.Tab.2.bottom" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091202" />
-    <state width="1877" height="167" key="GridCell.Tab.2.center" timestamp="1727595091201">
+    <state width="1877" height="167" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.2.center" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091201" />
-    <state width="1877" height="167" key="GridCell.Tab.2.left" timestamp="1727595091201">
+    <state width="1877" height="167" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.2.left" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091201" />
-    <state width="1877" height="167" key="GridCell.Tab.2.right" timestamp="1727595091201">
+    <state width="1877" height="167" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.2.right" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091201" />
-    <state width="1877" height="167" key="GridCell.Tab.3.bottom" timestamp="1727595091202">
+    <state width="1877" height="167" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.3.bottom" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091202" />
-    <state width="1877" height="167" key="GridCell.Tab.3.center" timestamp="1727595091202">
+    <state width="1877" height="167" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.3.center" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091202" />
-    <state width="1877" height="167" key="GridCell.Tab.3.left" timestamp="1727595091202">
+    <state width="1877" height="167" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.3.left" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091202" />
-    <state width="1877" height="167" key="GridCell.Tab.3.right" timestamp="1727595091202">
+    <state width="1877" height="167" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
+    <state width="1877" height="167" key="GridCell.Tab.3.right" timestamp="1727599638266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="167" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727595091202" />
+    <state width="1877" height="167" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1727599638266" />
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1726993437918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -218,5 +240,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1727589438138" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Grid/Pathfinding.cs</url>
+          <line>175</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Grid\Pathfinding.cs" initialLine="175">
+            <startOffsets>
+              <option value="5610" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5622" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs</url>
+          <line>110</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\MapGenerator.cs" initialLine="110">
+            <startOffsets>
+              <option value="2973" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3038" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

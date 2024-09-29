@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public struct FindPathSetting
@@ -32,7 +32,8 @@ public class Pathfinding : MonoBehaviour
         {
             var mosePosition = Utils.GetMouseWorldPosition();
             var gridObject = _grid.GetGridObject(mosePosition);
-            List<GridObject> path = FindPath(new FindPathSetting { StartX = 0, StartY = 0, EndX = gridObject.x, EndY = gridObject.y});
+            if(gridObject == null) return;
+            List<GridObject> path = FindPath(new FindPathSetting { StartX = 0, StartY = 0, EndX = gridObject.x, EndY = gridObject.y}, isCanDiagonalMove);
             if (path != null)
             {
                 float cellSize = _grid.GetCellSize();
@@ -59,8 +60,9 @@ public class Pathfinding : MonoBehaviour
         }
     }
 
-    private List<GridObject> FindPath(FindPathSetting setting)
+    public List<GridObject> FindPath(FindPathSetting setting, bool canDiagonalMove)
     {
+        isCanDiagonalMove = canDiagonalMove;
         GridObject start = _grid.GetGridObject(setting.StartX, setting.StartY);
         GridObject end = _grid.GetGridObject(setting.EndX, setting.EndY);
         
@@ -124,37 +126,36 @@ public class Pathfinding : MonoBehaviour
     private List<GridObject> GetNeighborList(GridObject currentNode)
     {
         List<GridObject> neighborList = new List<GridObject>();
-        if (currentNode.x - 1 >= 0)
+
+        int[,] directions = 
         {
-            //Left
-            neighborList.Add(GetNode(currentNode.x - 1, currentNode.y));
-            if (isCanDiagonalMove)
+            {-1,  0}, // Left
+            { 1,  0}, // Right
+            { 0, -1}, // Down
+            { 0,  1}, // Up
+            {-1, -1}, // Left Down (Diagonal)
+            {-1,  1}, // Left Up (Diagonal)
+            { 1, -1}, // Right Down (Diagonal)
+            { 1,  1}   // Right Up (Diagonal)
+        };
+
+        for (int i = 0; i < (isCanDiagonalMove ? 8 : 4); i++)
+        {
+            int newX = currentNode.x + directions[i, 0];
+            int newY = currentNode.y + directions[i, 1];
+
+            if (IsInGrid(newX, newY))
             {
-                //Left Down
-                if (currentNode.y - 1 >= 0) neighborList.Add(GetNode(currentNode.x - 1, currentNode.y - 1));
-                //Left Up
-                if (currentNode.y + 1 < _grid.GetHeight()) neighborList.Add(GetNode(currentNode.x - 1, currentNode.y + 1));
+                neighborList.Add(GetNode(newX, newY));
             }
         }
-        if (currentNode.x + 1 < _grid.GetWight())
-        {
-            //Right
-            neighborList.Add(GetNode(currentNode.x + 1, currentNode.y));
-            if (isCanDiagonalMove)
-            {
-                //Right Down
-                if (currentNode.y - 1 >= 0) neighborList.Add(GetNode(currentNode.x + 1, currentNode.y - 1));
-                //Right Up
-                if (currentNode.y + 1 < _grid.GetHeight())
-                    neighborList.Add(GetNode(currentNode.x + 1, currentNode.y + 1));
-            }
-        }
-        //Down
-        if(currentNode.y - 1 >= 0) neighborList.Add(GetNode(currentNode.x, currentNode.y - 1));
-        //Up
-        if(currentNode.y + 1 < _grid.GetHeight()) neighborList.Add(GetNode(currentNode.x, currentNode.y + 1));
 
         return neighborList;
+    }
+
+    private bool IsInGrid(int x, int y)
+    {
+        return x >= 0 && x < _grid.GetWight() && y >= 0 && y < _grid.GetHeight();
     }
 
     private GridObject GetNode(int x, int y)
@@ -186,15 +187,7 @@ public class Pathfinding : MonoBehaviour
 
     private GridObject GetLowestFConsNode(List<GridObject> pathNodeList)
     {
-        GridObject lowestNode = pathNodeList[0];
-        for (int i = 0; i < pathNodeList.Count; i++)
-        {
-            if (pathNodeList[i].fCost < lowestNode.fCost)
-            {
-                lowestNode = pathNodeList[i];
-            }
-        }
-
-        return lowestNode;
+        return pathNodeList.Aggregate((lowestNode, currentNode) =>
+            currentNode.fCost < lowestNode.fCost ? currentNode : lowestNode);
     }
 }
