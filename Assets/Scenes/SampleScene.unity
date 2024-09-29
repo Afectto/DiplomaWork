@@ -1015,7 +1015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1918900010}
-  - component: {fileID: 1918900009}
+  - component: {fileID: 1918900012}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -1023,23 +1023,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1918900009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918900008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c221af621b96c849aa5fa2bc2cdd0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setting:
-    Width: 10
-    Height: 10
-    CellSize: 0.85
-    OriginPosition: {x: 0.25, y: -4, z: 0}
 --- !u!4 &1918900010
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,6 +1038,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918900012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918900008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72788dc7eeb3706408a44411ce9df9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 8203952576997206175, guid: 71a9b70c6fd2349498fb8877c16dad5c, type: 3}
+  settingGrid:
+    Width: 10
+    Height: 10
+    CellSize: 0.85
+    OriginPosition: {x: 0.25, y: -4, z: 0}
+  dangerPointsCount: 3
+  interestPointsCount: 3
+  isAllowDiagonal: 1
+  wallCount: 30
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

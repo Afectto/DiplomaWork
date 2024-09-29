@@ -11,33 +11,6 @@ public struct GridSetting
     public Vector3 OriginPosition;
 }
 
-public class CreateGridObject : MonoBehaviour
-{
-    [SerializeField] private GridSetting setting;
-
-    private Grid<GridObject> _stringGrid;
-
-    public Grid<GridObject> Grid => _stringGrid;
-
-    void Awake()
-    {
-        _stringGrid = new Grid<GridObject>(setting,(g, x, y) => new GridObject(g,x,y));
-    }
-    
-    private void Update()
-    {
-        var position = Utils.GetMouseWorldPosition();
-        if (Input.GetMouseButtonDown(0))
-        {
-            var obj = _stringGrid.GetGridObject(position);
-            if (obj != null)
-            {
-                Debug.Log(obj.GetPosition());
-            }
-        }
-    }
-}
-
 public class GridObject
 {
     private Grid<GridObject> _grid;

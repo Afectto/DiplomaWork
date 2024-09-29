@@ -10,9 +10,9 @@ public struct FindPathSetting
     public int EndX;
     public int EndY;
 }
-public class Pathfinding : MonoBehaviour
+public class Pathfinding
 {
-    [SerializeField] private bool isCanDiagonalMove = true;
+    public bool IsCanDiagonalMove = true;
     
     private Grid<GridObject> _grid;
     private List<GridObject> _openList;
@@ -21,43 +21,40 @@ public class Pathfinding : MonoBehaviour
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_COST = 14;
 
-    private void Start()
+    public Pathfinding(Grid<GridObject> grid)
     {
-        _grid = FindAnyObjectByType<CreateGridObject>().Grid;
+        _grid = grid;
     }
 
-    private void Update()
+    public void ShowPathOnClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        var mosePosition = Utils.GetMouseWorldPosition();
+        var gridObject = _grid.GetGridObject(mosePosition);
+        if(gridObject == null) return;
+        List<GridObject> path = FindPath(new FindPathSetting { StartX = 0, StartY = 0, EndX = gridObject.x, EndY = gridObject.y}, IsCanDiagonalMove);
+        if (path != null)
         {
-            var mosePosition = Utils.GetMouseWorldPosition();
-            var gridObject = _grid.GetGridObject(mosePosition);
-            if(gridObject == null) return;
-            List<GridObject> path = FindPath(new FindPathSetting { StartX = 0, StartY = 0, EndX = gridObject.x, EndY = gridObject.y}, isCanDiagonalMove);
-            if (path != null)
+            float cellSize = _grid.GetCellSize();
+            Vector3 gridOrigin = _grid.GetOriginPosition();
+
+            for (var i = 0; i < path.Count - 1; i++)
             {
-                float cellSize = _grid.GetCellSize();
-                Vector3 gridOrigin = _grid.GetOriginPosition();
+                var pathNode = path[i];
+                var nextPathNode = path[i + 1];
 
-                for (var i = 0; i < path.Count - 1; i++)
-                {
-                    var pathNode = path[i];
-                    var nextPathNode = path[i + 1];
+                Vector3 currentNodeCenter = gridOrigin + new Vector3(pathNode.x, pathNode.y) * cellSize +
+                                            new Vector3(cellSize / 2, cellSize / 2);
+                Vector3 nextNodeCenter = gridOrigin + new Vector3(nextPathNode.x, nextPathNode.y) * cellSize +
+                                         new Vector3(cellSize / 2, cellSize / 2);
 
-                    Vector3 currentNodeCenter = gridOrigin + new Vector3(pathNode.x, pathNode.y) * cellSize + new Vector3(cellSize / 2, cellSize / 2);
-                    Vector3 nextNodeCenter = gridOrigin + new Vector3(nextPathNode.x, nextPathNode.y) * cellSize + new Vector3(cellSize / 2, cellSize / 2);
-
-                    Debug.DrawLine(currentNodeCenter, nextNodeCenter, Color.green, 10);
-                }
+                Debug.DrawLine(currentNodeCenter, nextNodeCenter, Color.green, 10);
             }
         }
-
-
     }
 
     public List<GridObject> FindPath(FindPathSetting setting, bool canDiagonalMove)
     {
-        isCanDiagonalMove = canDiagonalMove;
+        IsCanDiagonalMove = canDiagonalMove;
         GridObject start = _grid.GetGridObject(setting.StartX, setting.StartY);
         GridObject end = _grid.GetGridObject(setting.EndX, setting.EndY);
         
@@ -134,7 +131,7 @@ public class Pathfinding : MonoBehaviour
             { 1,  1}   // Right Up (Diagonal)
         };
 
-        for (int i = 0; i < (isCanDiagonalMove ? 8 : 4); i++)
+        for (int i = 0; i < (IsCanDiagonalMove ? 8 : 4); i++)
         {
             int newX = currentNode.x + directions[i, 0];
             int newY = currentNode.y + directions[i, 1];
