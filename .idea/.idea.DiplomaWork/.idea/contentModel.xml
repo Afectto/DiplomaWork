@@ -104,9 +104,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CodeExecutor.cs" t="Include" />
-          <e p="CodeExecutor2.cs" t="Include" />
-          <e p="DynamicCodeExecutor.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
