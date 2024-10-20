@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 1918900010}
   - component: {fileID: 1918900012}
   m_Layer: 0
-  m_Name: Test
+  m_Name: GenerateMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     OriginPosition: {x: 0.25, y: -4, z: 0}
   dangerPointsCount: 3
   interestPointsCount: 3
-  isAllowDiagonal: 1
+  isAllowDiagonal: 0
   wallCount: 30
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

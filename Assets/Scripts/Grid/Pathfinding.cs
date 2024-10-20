@@ -9,6 +9,7 @@ public struct FindPathSetting
     public int StartY;
     public int EndX;
     public int EndY;
+    public bool[] IsWalkableArray;
 }
 public class Pathfinding
 {
