@@ -225,7 +225,7 @@ public class MapGenerator : MonoBehaviour
     }
 
     private Vector2Int GetRandomPoint() => 
-        new Vector2Int(Random.Range(1, settingGrid.Width - 1), Random.Range(1, settingGrid.Height - 1));
+        new Vector2Int(Random.Range(0, settingGrid.Width), Random.Range(0, settingGrid.Height));
 
     private List<int2> GeneratePath(FindPathSetting pathSetting)
     {
