@@ -24,7 +24,13 @@ public class MapGenerator : MonoBehaviour
     public Grid<GridObject> GetGrid()
     {
         return _grid;
-    }    
+    }
+
+    public bool IsQuestTile(GridObject obj)
+    {
+        var mapItem = _map[obj.x, obj.y];
+        return mapItem > 2 && mapItem < 100;
+    }
     
     public int[,] GetMap()
     {
@@ -244,6 +250,9 @@ public class MapGenerator : MonoBehaviour
         var boxCollider = tile.AddComponent<BoxCollider2D>();
         boxCollider.size *= settingGrid.CellSize;
         boxCollider.isTrigger = color == Color.yellow;
+        boxCollider.compositeOperation = boxCollider.isTrigger
+            ? Collider2D.CompositeOperation.None
+            : Collider2D.CompositeOperation.Merge;
         var spriteRenderer = tile.GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.color = color;
         spriteRenderer.sortingOrder = sortingOrder;

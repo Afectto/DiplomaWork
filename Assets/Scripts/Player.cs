@@ -1,12 +1,11 @@
-﻿using System;
+﻿using TMPro;
 using UnityEngine;
 using Zenject;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
-
-    private static readonly Vector3 PositionOffset = new Vector3(0.5f,.5f);
+    [SerializeField] private TextMeshPro tooltip;
 
     private MapGenerator _mapGenerator;
     private Grid<GridObject> _grid;
@@ -14,7 +13,8 @@ public class Player : MonoBehaviour
     [Inject]
     private void Inject(MapGenerator mapGenerator)
     {
-        _mapGenerator = mapGenerator;
+        _mapGenerator = mapGenerator; 
+        tooltip.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -45,5 +45,21 @@ public class Player : MonoBehaviour
         return cell != null && cell.isWalkable;
     }
 
+    public void OnFindInterestTile(Vector3 pos)
+    {
+        GridObject obj = _grid.GetGridObject(pos);
+        if (_mapGenerator.IsQuestTile(obj))
+        {
+            tooltip.gameObject.SetActive(true);
+        }
+    }
 
+    public void OnOutFindInterestTile(Vector3 pos)
+    {
+        GridObject obj = _grid.GetGridObject(pos);
+        if (_mapGenerator.IsQuestTile(obj))
+        {
+            tooltip.gameObject.SetActive(false);
+        }
+    }
 }
