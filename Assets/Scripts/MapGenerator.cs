@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -69,9 +70,12 @@ public class MapGenerator : MonoBehaviour
     {
         List<Vector2Int> wallPositions = new List<Vector2Int>();
         var startTime = Time.realtimeSinceStartup;
+        var allPaths = GetAllPathToInterestPont(); // Получаем все пути
+
         while (wallPositions.Count < wallCount)
         {
             Vector2Int randomPosition = GetRandomPoint();
+
             while (IsStartOrEndPoint(randomPosition) || !TryPlaceWall(randomPosition, wallPositions))
             {
                 randomPosition = GetRandomPoint();
@@ -80,61 +84,109 @@ public class MapGenerator : MonoBehaviour
             wallPositions.Add(randomPosition);
             _isWalkableArray[CalculateIndex(randomPosition.x, randomPosition.y)] = false;
 
-            ClearPathInMap();
             var startTimeCheckPath = Time.realtimeSinceStartup;
-            if (!PathExistsToEndPoint() || !PathExistsToInterestAndDangerPoints())
+
+            if (DoesWallIntersectPaths(randomPosition, allPaths, out List<List<int2>> intersectingPaths))
             {
-                RestoreWalkableTiles(wallPositions[^1]);
-                wallPositions.RemoveAt(wallPositions.Count - 1);
+                for (var index = 0; index < intersectingPaths.Count; index++)
+                {
+                    var path = intersectingPaths[index];
+                    List<int2> newPath = RecalculatePath(path); // Перестраиваем путь
+                    if (newPath.Count > 0)
+                    {
+                        var indexInAllPath= allPaths.FindIndex(obj => obj == intersectingPaths[index]);
+                        allPaths[indexInAllPath] = newPath;
+                    }
+                    else
+                    {
+                        // Если хотя бы один путь не существует, удаляем стену
+                        RestoreWalkableTiles(wallPositions[^1]);
+                        wallPositions.RemoveAt(wallPositions.Count - 1);
+                        break; // Прерываем текущий цикл while, чтобы попробовать новую позицию
+                    }
+                }
             }
-            Debug.Log("Duration Time Check Path = " + ((Time.realtimeSinceStartup - startTimeCheckPath ) * 1000f));
+
+            Debug.Log(
+                $"Duration Time Check Path = {((Time.realtimeSinceStartup - startTimeCheckPath) * 1000f).ToString("F2")} ms");
         }
-        Debug.Log("Duration Total = " + ((Time.realtimeSinceStartup - startTime ) * 1000f));
+
+        foreach (var pathNode in allPaths.SelectMany(path => path))
+        {
+            if(_map[pathNode.x, pathNode.y] == -1)
+                _map[pathNode.x, pathNode.y] = 1;// Выставляем пути на карте
+        }
+        
+        Debug.Log($"Duration Total = {((Time.realtimeSinceStartup - startTime) * 1000f).ToString("F2")} ms");
         PlaceWallsOnMap(wallPositions);
-        PlaceWallsOnMap(wallPositions);
+    }
+    
+    private bool DoesWallIntersectPaths(Vector2Int wallPosition, List<List<int2>> allPaths,
+        out List<List<int2>> intersectingPaths)
+    {
+        intersectingPaths = new List<List<int2>>();
+
+        // Проверяем все пути на пересечение с текущей стеной
+        foreach (var path in allPaths)
+        {
+            if (path.Contains(new int2(wallPosition.x, wallPosition.y)))
+            {
+                intersectingPaths.Add(path);
+            }
+        }
+
+        return intersectingPaths.Count > 0; // Вернуть true, если есть пересечения
+    }
+
+    private List<int2> RecalculatePath(List<int2> oldPath)
+    {
+        Vector2Int endPoint = new Vector2Int(oldPath[0].x, oldPath[0].y);
+
+        return GeneratePath(new FindPathSetting
+        {
+            StartX = _startPoint.x,
+            StartY = _startPoint.y,
+            EndX = endPoint.x,
+            EndY = endPoint.y,
+            IsWalkableArray = _isWalkableArray
+        });
     }
 
     private int CalculateIndex(int x, int y) => x + y * settingGrid.Width;
 
-    private void ClearPathInMap()
+    private List<List<int2>> GetAllPathToInterestPont()
     {
-        for (int x = 0; x < settingGrid.Width; x++)
-            for (int y = 0; y < settingGrid.Height; y++)
-                if (_map[x, y] == 1)
-                    _map[x, y] = -1;
-    }
-
-    private bool PathExistsToEndPoint() => 
-        GeneratePath(new FindPathSetting
+        List<List<int2>> allPath = new List<List<int2>>
         {
-            StartX = _startPoint.x,
-            StartY = _startPoint.y,
-            EndX = _endPoint.x,
-            EndY = _endPoint.y,
-            IsWalkableArray = _isWalkableArray
-        }).Count > 0;
+            GeneratePath(new FindPathSetting
+            {
+                StartX = _startPoint.x,
+                StartY = _startPoint.y,
+                EndX = _endPoint.x,
+                EndY = _endPoint.y,
+                IsWalkableArray = _isWalkableArray
+            })
+        };
 
-    private bool PathExistsToInterestAndDangerPoints()
-    {
         for (int x = 0; x < settingGrid.Width; x++)
         {
             for (int y = 0; y < settingGrid.Height; y++)
             {
-                if (_map[x, y] > 1 &&
-                    GeneratePath(new FindPathSetting
+                if (_map[x, y] > 1)
+                {
+                    allPath.Add(GeneratePath(new FindPathSetting
                     {
                         StartX = _startPoint.x,
                         StartY = _startPoint.y,
                         EndX = x,
                         EndY = y,
                         IsWalkableArray = _isWalkableArray
-                    }).Count == 0)
-                {
-                    return false;
+                    }));
                 }
             }
         }
-        return true;
+
+        return allPath;
     }
 
     private bool IsStartOrEndPoint(Vector2Int position) => 
@@ -219,7 +271,7 @@ public class MapGenerator : MonoBehaviour
             do
             {
                 point = GetRandomPoint();
-            } while (!_grid.GetGridObject(point.x, point.y).isWalkable);
+            } while (_map[point.x, point.y] != -1);
             _map[point.x, point.y] = Random.Range(minValue, minValue + 100);
         }
     }
@@ -230,10 +282,6 @@ public class MapGenerator : MonoBehaviour
     private List<int2> GeneratePath(FindPathSetting pathSetting)
     {
         List<int2> path = _pathfinding.FindPath(pathSetting, isAllowDiagonal);
-        if (path.Count > 0)
-            foreach (var node in path)
-                if (_map[node.x, node.y] == -1)
-                    _map[node.x, node.y] = 1;
 
         return path;
     }
