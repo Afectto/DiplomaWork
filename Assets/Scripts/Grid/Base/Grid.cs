@@ -93,7 +93,20 @@ public class Grid<TGridObject>
     {
         return _originPosition;
     }
+    
+    public Vector3 GetWorldPositionByCenterCell(int x, int y)
+    {
+        Vector3 pos = new Vector3(x, y, 0) * _cellSize;
 
+        pos.x += _cellSize * 0.5f;
+        pos.y += _cellSize * 0.5f;
+
+        pos += _originPosition;
+        pos.z = 0;
+
+        return pos;
+    }
+    
     public Vector3 GetWorldPosition(int x, int y)
     {
         var pos = new Vector3(x, y, 0) * _cellSize + _originPosition;
@@ -101,7 +114,7 @@ public class Grid<TGridObject>
         return pos;
     }
 
-    private void GetXY(Vector3 worldPosition, out int x, out int y)
+    public void GetXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt((worldPosition - _originPosition).x / _cellSize);
         y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);

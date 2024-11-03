@@ -21,6 +21,16 @@ public class MapGenerator : MonoBehaviour
     private Vector2Int _endPoint;
     private bool[] _isWalkableArray;
 
+    public Grid<GridObject> GetGrid()
+    {
+        return _grid;
+    }    
+    
+    public int[,] GetMap()
+    {
+        return _map;
+    }
+    
     private void Awake()
     {
         InitializeGrid();
@@ -107,8 +117,7 @@ public class MapGenerator : MonoBehaviour
                 }
             }
 
-            Debug.Log(
-                $"Duration Time Check Path = {((Time.realtimeSinceStartup - startTimeCheckPath) * 1000f).ToString("F2")} ms");
+            // Debug.Log($"Duration Time Check Path = {((Time.realtimeSinceStartup - startTimeCheckPath) * 1000f).ToString("F2")} ms");
         }
 
         foreach (var pathNode in allPaths.SelectMany(path => path))
@@ -119,6 +128,7 @@ public class MapGenerator : MonoBehaviour
         
         Debug.Log($"Duration Total = {((Time.realtimeSinceStartup - startTime) * 1000f).ToString("F2")} ms");
         PlaceWallsOnMap(wallPositions);
+        DrawMap();
     }
     
     private bool DoesWallIntersectPaths(Vector2Int wallPosition, List<List<int2>> allPaths,
@@ -306,10 +316,10 @@ public class MapGenerator : MonoBehaviour
         switch (_map[x, y])
         {
             case 0 when x == _startPoint.x && y == _startPoint.y:
-                CreateTile(currentNodeCenter, Color.cyan, 1);
+                // CreateTile(currentNodeCenter, Color.cyan, 1);
                 break;
             case 0 when x == _endPoint.x && y == _endPoint.y:
-                CreateTile(currentNodeCenter, Color.magenta, 1);
+                // CreateTile(currentNodeCenter, Color.magenta, 1);
                 break;
             case int n when n > 102:
                 CreateTile(currentNodeCenter, Color.red, 1);
@@ -318,10 +328,10 @@ public class MapGenerator : MonoBehaviour
                 CreateTile(currentNodeCenter, Color.yellow, 1);
                 break;
             case 1:
-                CreateTile(currentNodeCenter, Color.white);
+                // CreateTile(currentNodeCenter, Color.white);
                 break;
             default:
-                CreateTile(currentNodeCenter, Color.black);
+                // CreateTile(currentNodeCenter, Color.black);
                 break;
         }
     }
