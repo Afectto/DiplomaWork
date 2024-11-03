@@ -5,7 +5,9 @@ using Zenject;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
-    
+
+    private static readonly Vector3 PositionOffset = new Vector3(0.5f,.5f);
+
     private MapGenerator _mapGenerator;
     private Grid<GridObject> _grid;
 
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
         transform.position = _grid.GetWorldPositionByCenterCell(0, 0);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
@@ -32,16 +34,13 @@ public class Player : MonoBehaviour
         {
             transform.localPosition = newPosition;
         }
-        else
-        {
-            transform.localPosition = newPosition - 4 * new Vector3(moveX, moveY, 0) * speed * Time.deltaTime;
-        }
     }
 
     private bool CanPlayerEnterCell(Vector3 worldPosition)
     {
+        var offsetPosition = worldPosition;
         int x, y;
-        _grid.GetXY(worldPosition, out x, out y);
+        _grid.GetXY(offsetPosition, out x, out y);
         var cell = _grid.GetGridObject(x, y);
         return cell != null && cell.isWalkable;
     }

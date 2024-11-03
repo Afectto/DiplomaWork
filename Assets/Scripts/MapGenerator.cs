@@ -241,6 +241,9 @@ public class MapGenerator : MonoBehaviour
     {
         var tile = Instantiate(tilePrefab, transform);
         tile.transform.position = pos;
+        var boxCollider = tile.AddComponent<BoxCollider2D>();
+        boxCollider.size *= settingGrid.CellSize;
+        boxCollider.isTrigger = color == Color.yellow;
         var spriteRenderer = tile.GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.color = color;
         spriteRenderer.sortingOrder = sortingOrder;
