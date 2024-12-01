@@ -2,120 +2,96 @@ using UnityEngine;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CodeExecutor : MonoBehaviour
 {    
     [SerializeField] private TMP_InputField inputField;
+    [SerializeField] private TextMeshProUGUI textTask;
+    [SerializeField] private TextMeshProUGUI resultTask;
     private Button _button;
+    private List<Task> tasks;
 
     private string _paramInExecute;
+    private Task _selectedTask;
 
     private void Awake()
     {
+        LoadTasks();
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ExecuteCode);
     }
+
+    private void OnEnable()
+    {
+        ShowTask();
+    }
+
+    private void ShowTask()
+    {
+        _selectedTask = tasks[9];//[Random.Range(0, tasks.Count)];
+        textTask.text = _selectedTask.text;
+        
+        inputField.text = $@"
+using UnityEngine;
+using System;
+
+public class DynamicCode
+{{
+{_selectedTask.baseCode}
     
-    // public void ExecuteCode()
-    // {
-    //     string code = $@"
-    //     public class DynamicCode
-    //     {{
-    //         public void Execute(Player player)
-    //         {{
-    //             {inputField.text}
-    //         }}
-    //     }}";
-    //     // @" TODO: пример
-    //     // public class DynamicCode
-    //     // {
-    //     //     public void Execute()
-    //     //     {
-    //     //         int k = 10;
-    //     //         int l = 0;
-    //     //         for(int i = 0; i < k; i++)
-    //     //         {
-    //     //             l += i;
-    //     //         }
-    //     //         UnityEngine.Debug.Log(l);
-    //     //     }
-    //     // }"
-    //     var syntaxTrees = new[] { CSharpSyntaxTree.ParseText(code) };
-    //
-    //     // Включаем ссылки на сборки, необходимые для компиляции
-    //     var references = AppDomain.CurrentDomain.GetAssemblies()
-    //         .Where(assembly => !assembly.IsDynamic && !string.IsNullOrEmpty(assembly.Location))
-    //         .Select(assembly => MetadataReference.CreateFromFile(assembly.Location))
-    //         .ToList();
-    //
-    //     // Добавляем конкретные зависимости, необходимые для Unity 
-    //     references.Add(MetadataReference.CreateFromFile(typeof(object).Assembly.Location));
-    //
-    //     var compilation = CSharpCompilation.Create(
-    //         "DynamicAssembly",
-    //         syntaxTrees,
-    //         references,
-    //         new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
-    //
-    //     using (var ms = new MemoryStream())
-    //     {
-    //         var result = compilation.Emit(ms);
-    //
-    //         if (!result.Success)
-    //         {
-    //             foreach (var diagnostic in result.Diagnostics)
-    //             {
-    //                 Debug.LogError(diagnostic.ToString());
-    //             }
-    //             return;
-    //         }
-    //
-    //         ms.Seek(0, SeekOrigin.Begin);
-    //
-    //         var assembly = Assembly.Load(ms.ToArray());
-    //         var type = assembly.GetType("DynamicCode");
-    //         var instance = Activator.CreateInstance(type);
-    //         var method = type.GetMethod("Execute");
-    //         
-    //         if (method != null)
-    //         {
-    //             Player player = FindObjectOfType<Player>();
-    //             method.Invoke(instance, new object[] { player });
-    //         }
-    //         else
-    //         {
-    //             Debug.LogError("Метод 'Execute' не найден.");
-    //         }
-    //     }
-    // }
+}}";
+        resultTask.text = "";
+    }
+    
+    private void LoadTasks()
+    {
+        string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "Tasks.json");
+        if (File.Exists(jsonFilePath))
+        {
+            string json = File.ReadAllText(jsonFilePath);
+            tasks = JsonUtility.FromJson<TasksWrapper>(json).tasks;
+            Debug.Log("Задачи загружены успешно.");
+        }
+        else
+        {
+            Debug.LogError("Файл задач не найден!");
+        }
+    }
     
     private void ExecuteCode()
     {
-        string code = GenerateDynamicCode(inputField.text);
-
+        string code = inputField.text;
         var compilation = CompileCode(code);
         
-        if (EmitAndExecute(compilation))
+        if (EmitAndExecute(compilation, _selectedTask.tests))
         {
             Debug.Log("Код успешно выполнен.");
         }
     }
 
     private string GenerateDynamicCode(string userInput)
-    {
+    {    
+        // if (!userInput.Trim().StartsWith("return", StringComparison.OrdinalIgnoreCase))
+        // {
+        //     userInput = $"return {userInput};"; 
+        // }
+
         return $@"
-        public class DynamicCode
-        {{
-            public void Execute(Player player)
-            {{
-                {userInput}
-            }}
-        }}";
+using UnityEngine;
+using System;
+
+public class DynamicCode
+{{
+{userInput.Trim()}
+}}";
     }
 
     private CSharpCompilation CompileCode(string code)
@@ -137,39 +113,153 @@ public class CodeExecutor : MonoBehaviour
             new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
     }
 
-    private bool EmitAndExecute(CSharpCompilation compilation)
+    private bool EmitAndExecute(CSharpCompilation compilation, List<Test> tests)
     {
-        using (var ms = new MemoryStream())
+        using var ms = new MemoryStream();
+        var result = compilation.Emit(ms);
+
+        if (!result.Success)
         {
-            var result = compilation.Emit(ms);
-
-            if (!result.Success)
+            foreach (var diagnostic in result.Diagnostics)
             {
-                foreach (var diagnostic in result.Diagnostics)
+                Debug.LogError(diagnostic.ToString());
+            }
+            return false;
+        }
+
+        ms.Seek(0, SeekOrigin.Begin);
+        var assembly = Assembly.Load(ms.ToArray());
+        var type = assembly.GetType("DynamicCode");
+        var instance = Activator.CreateInstance(type);
+        var method = type.GetMethod("main");
+
+        if (method != null)
+        {
+            foreach (var test in tests)
+            {           
+                var inputs = test.input.Split(',').Select(x => x.Trim()).ToArray();
+                object[] parameters = null;
+                if (test.inputTypes[0].StartsWith("[") && test.inputTypes[0].EndsWith("]"))
                 {
-                    Debug.LogError(diagnostic.ToString());
+                    parameters = new object[1];
+                    parameters[0] = ConvertInputsToArray(inputs, test.inputTypes);
                 }
-                return false;
-            }
+                else
+                {
+                    var typedInputs = ConvertInputs(inputs, test.inputTypes);
+                    parameters = new object[typedInputs.Length];
+                    for (var index = 0; index < typedInputs.Length; index++)
+                    {
+                        var param = typedInputs[index];
+                        parameters[index] = param;
+                    }
+                }
 
-            ms.Seek(0, SeekOrigin.Begin);
-            var assembly = Assembly.Load(ms.ToArray());
-            var type = assembly.GetType("DynamicCode");
-            var instance = Activator.CreateInstance(type);
-            var method = type.GetMethod("Execute");
+                var actualResult = method.Invoke(instance, parameters);
 
-            if (method != null)
-            {
-                Player player = FindObjectOfType<Player>();
-                method.Invoke(instance, new object[] { player });
-                return true;
+                if (!ValidateResult(actualResult, test.expected))
+                {
+                    resultTask.text = $"Тест не пройден:" +
+                                      $" входные данные '{test.input}'" +
+                                      $", ожидаемый результат '{test.expected}'" +
+                                      $", актуальный результат '{actualResult}'";
+                    return false;
+                }
             }
-            else
-            {
-                Debug.LogError("Метод 'Execute' не найден.");
-                return false;
-            }
+            return true;
+        }
+        else
+        {
+            Debug.LogError("Метод 'main' не найден.");
+            return false;
         }
     }
 
+    private object ConvertInputsToArray(string[] inputs, List<string> inputTypes)
+    {
+        if (inputTypes.Count != 1)
+        {
+            Debug.LogError("Неверное количество типов. Ожидается один тип для массива.");
+            return null;
+        }
+
+        string innerType = inputTypes[0].Trim('[', ']');
+        switch (innerType.ToLower())
+        {
+            case "double":
+                return inputs.Select(x => Convert.ToDouble(x)).ToArray();
+            case "float":
+                return inputs.Select(x => Convert.ToSingle(x)).ToArray();
+            case "int":
+                return inputs.Select(x => Convert.ToInt32(x)).ToArray();
+            case "string":
+                return inputs; // В данном случае, массив строк уже готов
+            default:
+                Debug.LogError($"Неизвестный тип массива {innerType} для входных данных.");
+                return null;
+        }
+    }
+    
+    private object[] ConvertInputs(string[] inputs, List<string> inputTypes)
+    {
+        var convertedInputs = new object[inputs.Length];
+
+        for (int i = 0; i < inputs.Length; i++)
+        {
+            convertedInputs[i] = ChooseType(inputs[i], inputTypes[i]);
+        }
+
+        return convertedInputs;
+    }
+
+
+    private object ChooseType(string input, string inputTypes)
+    {
+        object convertedInputs = null;
+        switch (inputTypes.ToLower())
+        {
+            case "int":
+                convertedInputs = Convert.ToInt32(input);
+                break;
+            case "double":
+                convertedInputs = Convert.ToDouble(input);
+                break;
+            case "string":
+                convertedInputs = input;
+                break;
+            default:
+                Debug.LogError($"Неизвестный тип {inputTypes} для входных данных.");
+                break;
+        }
+
+        return convertedInputs;
+    }
+    private bool ValidateResult(object actual, string expected)
+    {
+        return actual?.ToString() == expected;
+    }
+}
+
+[Serializable]
+public class Task
+{
+    public int id;
+    public string text;
+    public string baseCode;
+    public List<Test> tests;
+    public int difficulty;
+}
+
+[Serializable]
+public class Test
+{
+    public string input;
+    public string expected;
+    public List<string> inputTypes;
+}
+
+[Serializable]
+public class TasksWrapper
+{
+    public List<Task> tasks;
 }

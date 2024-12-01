@@ -1,0 +1,199 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Напишите программу, которая возвращает строку 'Hello, World!'.",
+      "baseCode": "\n    public string main(string s = null)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "",
+          "expected": "Hello, World!",
+          "inputTypes": ["string"]
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": 2,
+      "text": "Напишите программу, которая возвращает строку, которую передал пользователь.",
+      "baseCode": "\n    public string main(string input)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "Привет, мир!",
+          "expected": "Привет, мир!",
+          "inputTypes": ["string"]
+        },
+        {
+          "input": "",
+          "expected": "",
+          "inputTypes": ["string"]
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": 3,
+      "text": "Напишите программу, которая выводит сумму двух чисел.",
+      "baseCode": "\n    public int main(int a, int b)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "3, 4",
+          "expected": "7",
+          "inputTypes": ["int", "int"]
+        },
+        {
+          "input": "10, 15",
+          "expected": "25",
+          "inputTypes": ["int", "int"]
+        },
+        {
+          "input": "0, 0",
+          "expected": "0",
+          "inputTypes": ["int", "int"]
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": 4,
+      "text": "Напишите программу, которая проверяет, является ли число четным.",
+      "baseCode": "\n    public string main(int number)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "10",
+          "expected": "Да",
+          "inputTypes": ["int"]
+        },
+        {
+          "input": "9",
+          "expected": "Нет",
+          "inputTypes": ["int"]
+        },
+        {
+          "input": "0",
+          "expected": "Да",
+          "inputTypes": ["int"]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 5,
+      "text": "Напишите программу, которая находит максимальное из трех чисел.",
+      "baseCode": "\n    public int main(int a, int b, int c)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "5, 3, 8",
+          "expected": "8",
+          "inputTypes": ["int", "int", "int"]
+        },
+        {
+          "input": "1, 2, 3",
+          "expected": "3",
+          "inputTypes": ["int", "int", "int"]
+        },
+        {
+          "input": "10, 5, 6",
+          "expected": "10",
+          "inputTypes": ["int", "int", "int"]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 6,
+      "text": "Напишите программу, которая считает факториал числа.",
+      "baseCode": "\n    public int main(int n)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "5",
+          "expected": "120",
+          "inputTypes": ["int"]
+        },
+        {
+          "input": "0",
+          "expected": "1",
+          "inputTypes": ["int"]
+        },
+        {
+          "input": "1",
+          "expected": "1",
+          "inputTypes": ["int"]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 7,
+      "text": "Напишите программу, которая определяет, является ли строка палиндромом.",
+      "baseCode": "\n    public string main(string input)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "А роза упала на лапу Азора",
+          "expected": "Да",
+          "inputTypes": ["string"]
+        },
+        {
+          "input": "Привет",
+          "expected": "Нет",
+          "inputTypes": ["string"]
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": 8,
+      "text": "Напишите программу, которая меняет местами два числа.",
+      "baseCode": "\n    public (int, int) main(int a, int b)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "5, 10",
+          "expected": "10, 5",
+          "inputTypes": ["int", "int"]
+        },
+        {
+          "input": "0, 1",
+          "expected": "1, 0",
+          "inputTypes": ["int", "int"]
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": 9,
+      "text": "Напишите программу, которая сортирует массив чисел.",
+      "baseCode": "\n    public int[] main(int[] array)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "3, 1, 2",
+          "expected": "1, 2, 3",
+          "inputTypes": ["[int]"]
+        },
+        {
+          "input": "10, 5, 8, 3",
+          "expected": "3, 5, 8, 10",
+          "inputTypes": ["[int]"]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 10,
+      "text": "Напишите программу, которая находит среднее арифметическое массива чисел.",
+      "baseCode": "\n    public float main(float[] numbers)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "1, 2, 3, 4, 5",
+          "expected": "3",
+          "inputTypes": ["[float]"]
+        },
+        {
+          "input": "10, 20, 30",
+          "expected": "20",
+          "inputTypes": ["[float]"]
+        }
+      ],
+      "difficulty": 2
+    }
+  ]
+}
