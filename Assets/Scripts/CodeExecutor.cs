@@ -36,7 +36,7 @@ public class CodeExecutor : MonoBehaviour
 
     private void ShowTask()
     {
-        _selectedTask = tasks[9];//[Random.Range(0, tasks.Count)];
+        _selectedTask = tasks[8];//[Random.Range(0, tasks.Count)];
         textTask.text = _selectedTask.text;
         
         inputField.text = $@"
@@ -76,24 +76,7 @@ public class DynamicCode
             Debug.Log("Код успешно выполнен.");
         }
     }
-
-    private string GenerateDynamicCode(string userInput)
-    {    
-        // if (!userInput.Trim().StartsWith("return", StringComparison.OrdinalIgnoreCase))
-        // {
-        //     userInput = $"return {userInput};"; 
-        // }
-
-        return $@"
-using UnityEngine;
-using System;
-
-public class DynamicCode
-{{
-{userInput.Trim()}
-}}";
-    }
-
+    
     private CSharpCompilation CompileCode(string code)
     {
         var syntaxTrees = new[] { CSharpSyntaxTree.ParseText(code) };
@@ -157,6 +140,11 @@ public class DynamicCode
 
                 var actualResult = method.Invoke(instance, parameters);
 
+                if (actualResult is Array objectArrayResult)
+                {
+                    actualResult = ConvertToString(objectArrayResult);
+                }
+                
                 if (!ValidateResult(actualResult, test.expected))
                 {
                     resultTask.text = $"Тест не пройден:" +
@@ -173,6 +161,22 @@ public class DynamicCode
             Debug.LogError("Метод 'main' не найден.");
             return false;
         }
+    }
+
+    private string ConvertToString(Array array)
+    {
+        string rez = "";
+
+        for (var index = 0; index < array.Length; index++)
+        {
+            rez += array.GetValue(index);
+            if (index < array.Length - 1)
+            {
+                rez += ", ";
+            }
+        }
+
+        return rez;
     }
 
     private object ConvertInputsToArray(string[] inputs, List<string> inputTypes)
