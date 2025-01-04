@@ -1039,21 +1039,28 @@
               <e p="Base" t="Include">
                 <e p="Grid.cs" t="Include" />
               </e>
+              <e p="FindPathSetting.cs" t="Include" />
+              <e p="GridManager.cs" t="Include" />
               <e p="GridObject.cs" t="Include" />
+              <e p="GridSetting.cs" t="Include" />
+              <e p="MapGenerator.cs" t="Include" />
               <e p="Pathfinding.cs" t="Include" />
               <e p="PathfindingJob.cs" t="Include" />
+              <e p="PathfindingManager.cs" t="Include" />
               <e p="Slot" t="Include">
                 <e p="Slot.cs" t="Include" />
                 <e p="SlotGridObject.cs" t="Include" />
               </e>
+              <e p="TaskManager.cs" t="Include" />
+              <e p="Tile.cs" t="Include" />
+              <e p="TileManager.cs" t="Include" />
               <e p="Utils" t="Include">
                 <e p="Utils.cs" t="Include" />
               </e>
             </e>
-            <e p="MapGenerator.cs" t="Include" />
-            <e p="Tile.cs" t="Include" />
           </e>
           <e p="Player.cs" t="Include" />
+          <e p="QuestController.cs" t="Include" />
           <e p="StateMachine" t="Include">
             <e p="GameStateData.cs" t="Include" />
             <e p="GameStateMachine.cs" t="Include" />

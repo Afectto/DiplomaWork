@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public struct FindPathSetting
-{
-    public int StartX;
-    public int StartY;
-    public int EndX;
-    public int EndY;
-    public bool[] IsWalkableArray;
-}
 public class Pathfinding
 {
     public bool IsCanDiagonalMove = true;
@@ -62,7 +54,7 @@ public class Pathfinding
         _openList = new List<GridObject>{start};
         _closeList = new List<GridObject>();
 
-        for (int x = 0; x < _grid.GetWight(); x++)
+        for (int x = 0; x < _grid.GetWidth(); x++)
         {
             for (int y = 0; y < _grid.GetHeight(); y++)
             {
@@ -148,7 +140,7 @@ public class Pathfinding
 
     private bool IsInGrid(int x, int y)
     {
-        return x >= 0 && x < _grid.GetWight() && y >= 0 && y < _grid.GetHeight();
+        return x >= 0 && x < _grid.GetWidth() && y >= 0 && y < _grid.GetHeight();
     }
 
     private GridObject GetNode(int x, int y)

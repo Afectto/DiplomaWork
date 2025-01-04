@@ -18,13 +18,13 @@ public class PathfindingJob
     public List<int2> FindPath(FindPathSetting setting, bool canDiagonalMove)
     {
         NativeList<int2> path = new NativeList<int2>(Allocator.TempJob);
-        NativeArray<bool> isWalkableArray = new NativeArray<bool>(_grid.GetWight() * _grid.GetHeight(), Allocator.TempJob);
+        NativeArray<bool> isWalkableArray = new NativeArray<bool>(_grid.GetWidth() * _grid.GetHeight(), Allocator.TempJob);
 
-        for (int x = 0; x < _grid.GetWight(); x++)
+        for (int x = 0; x < _grid.GetWidth(); x++)
         {
             for (int y = 0; y < _grid.GetHeight(); y++)
             {
-                var index = CalculateIndex(x, y, _grid.GetWight());
+                var index = CalculateIndex(x, y, _grid.GetWidth());
                 isWalkableArray[index] = setting.IsWalkableArray[index];
             }
         }
@@ -32,7 +32,7 @@ public class PathfindingJob
         {
             startPosition = new int2(setting.StartX, setting.StartY),
             endPosition = new int2(setting.EndX, setting.EndY),
-            gridSize = new int2(_grid.GetWight(), _grid.GetHeight()),
+            gridSize = new int2(_grid.GetWidth(), _grid.GetHeight()),
             pathJob = path,
             IsCanDiagonalMove = canDiagonalMove,
             isWalkableArray = isWalkableArray

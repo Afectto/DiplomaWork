@@ -6,10 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class CodeExecutor : MonoBehaviour
 {    
@@ -17,26 +15,29 @@ public class CodeExecutor : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textTask;
     [SerializeField] private TextMeshProUGUI resultTask;
     private Button _button;
-    private List<Task> tasks;
 
     private string _paramInExecute;
     private Task _selectedTask;
 
     private void Awake()
     {
-        LoadTasks();
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ExecuteCode);
     }
 
     private void OnEnable()
     {
-        ShowTask();
     }
 
+    public void SetTask(Task newTask)
+    {
+        _selectedTask = newTask;
+        ShowTask();
+    }
+    
     private void ShowTask()
     {
-        _selectedTask = tasks[8];//[Random.Range(0, tasks.Count)];
+        // _selectedTask = _tasks[8];//[Random.Range(0, tasks.Count)];
         textTask.text = _selectedTask.text;
         
         inputField.text = $@"
@@ -49,21 +50,6 @@ public class DynamicCode
     
 }}";
         resultTask.text = "";
-    }
-    
-    private void LoadTasks()
-    {
-        string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "Tasks.json");
-        if (File.Exists(jsonFilePath))
-        {
-            string json = File.ReadAllText(jsonFilePath);
-            tasks = JsonUtility.FromJson<TasksWrapper>(json).tasks;
-            Debug.Log("Задачи загружены успешно.");
-        }
-        else
-        {
-            Debug.LogError("Файл задач не найден!");
-        }
     }
     
     private void ExecuteCode()

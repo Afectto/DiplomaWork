@@ -8,5 +8,20 @@ public class GameInstaller : MonoInstaller
             .BindInterfacesAndSelfTo<MapGenerator>()
             .FromComponentsInHierarchy()
             .AsSingle();
+        
+        Container
+            .BindInterfacesAndSelfTo<QuestController>()
+            .FromComponentsInHierarchy()
+            .AsSingle();
+
+        Container
+            .BindInterfacesAndSelfTo<TaskManager>()
+            .AsSingle()
+            .NonLazy();
+        
+        Container
+            .BindInterfacesAndSelfTo<Player>()
+            .FromComponentsInHierarchy()
+            .AsSingle();
     }
 }

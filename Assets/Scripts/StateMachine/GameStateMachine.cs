@@ -8,7 +8,7 @@ public class GameStateMachine
     private readonly Dictionary<IGameState, GameStateData> _reverseStates;
     private IGameState _currentState;
 
-    public Action<GameStateData> OnChangeState;
+    public event Action<GameStateData> OnChangeState;
 
     public GameStateMachine(GameState gameState, PauseState pauseState, QuestState questState)
     {

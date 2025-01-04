@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
 
     private MapGenerator _mapGenerator;
     private Grid<GridObject> _grid;
+    private GameStateMachine _stateMachine;
+    
+    public GridObject TileTask { get; private set; }
 
     [Inject]
-    private void Inject(MapGenerator mapGenerator)
+    private void Inject(MapGenerator mapGenerator, GameStateMachine stateMachine)
     {
+        _stateMachine = stateMachine;
         _mapGenerator = mapGenerator; 
         tooltip.gameObject.SetActive(false);
     }
@@ -36,6 +40,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (tooltip.gameObject.activeSelf && Input.GetKeyDown(KeyCode.E))
+        {
+            _stateMachine.ChangeState(GameStateData.Quest);
+        }
+    }
+
     private bool CanPlayerEnterCell(Vector3 worldPosition)
     {
         var offsetPosition = worldPosition;
@@ -48,6 +60,7 @@ public class Player : MonoBehaviour
     public void OnFindInterestTile(Vector3 pos)
     {
         GridObject obj = _grid.GetGridObject(pos);
+        TileTask = obj;
         if (_mapGenerator.IsQuestTile(obj))
         {
             tooltip.gameObject.SetActive(true);
@@ -57,6 +70,7 @@ public class Player : MonoBehaviour
     public void OnOutFindInterestTile(Vector3 pos)
     {
         GridObject obj = _grid.GetGridObject(pos);
+        TileTask = null;
         if (_mapGenerator.IsQuestTile(obj))
         {
             tooltip.gameObject.SetActive(false);

@@ -1,15 +1,4 @@
-using System;
 using Unity.Mathematics;
-using UnityEngine;
-
-[Serializable]
-public struct GridSetting
-{
-    public int Width;
-    public int Height;
-    public float CellSize;
-    public Vector3 OriginPosition;
-}
 
 public class GridObject
 {

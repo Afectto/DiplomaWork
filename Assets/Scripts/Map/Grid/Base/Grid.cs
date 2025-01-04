@@ -17,6 +17,7 @@ public class Grid<TGridObject>
 
     private TextMesh[,] debugTexArray;
     private TGridObject[,] _gridArray;
+    public readonly GridSetting Setting;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid<TGridObject> , int, int, TGridObject> createGridObject = null)
     {
@@ -26,6 +27,7 @@ public class Grid<TGridObject>
 
     public Grid(GridSetting setting, Func<Grid<TGridObject>, int, int, TGridObject> createGridObject = null)
     {
+        Setting = setting;
         Initialize(setting.Width, setting.Height, setting.CellSize, setting.OriginPosition, createGridObject);
     }
     
@@ -74,7 +76,7 @@ public class Grid<TGridObject>
         };
     }
 
-    public int GetWight()
+    public int GetWidth()
     {
         return _width;
     }
