@@ -2,12 +2,12 @@
   "tasks": [
     {
       "id": 1,
-      "text": "Напишите программу, которая возвращает строку 'Hello, World!'.",
+      "text": "Напишите программу, которая возвращает строку 'Hello World!'.",
       "baseCode": "\n    public string main(string s = null)\n    {\n        \n    }",
       "tests": [
         {
           "input": "",
-          "expected": "Hello, World!",
+          "expected": "Hello World!",
           "inputTypes": ["string"]
         }
       ],
@@ -19,8 +19,8 @@
       "baseCode": "\n    public string main(string input)\n    {\n        \n    }",
       "tests": [
         {
-          "input": "Привет, мир!",
-          "expected": "Привет, мир!",
+          "input": "Привет мир!",
+          "expected": "Привет мир!",
           "inputTypes": ["string"]
         },
         {

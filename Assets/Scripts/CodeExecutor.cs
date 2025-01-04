@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine.UI;
+using TaskAsync = System.Threading.Tasks.Task;
 
 public class CodeExecutor : MonoBehaviour
 {    
@@ -22,7 +23,7 @@ public class CodeExecutor : MonoBehaviour
     private void Awake()
     {
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(ExecuteCode);
+        _button.onClick.AddListener(async () => await ExecuteCode());
     }
 
     private void OnEnable()
@@ -52,14 +53,20 @@ public class DynamicCode
         resultTask.text = "";
     }
     
-    private void ExecuteCode()
+    private async TaskAsync ExecuteCode()
     {
-        string code = inputField.text;
-        var compilation = CompileCode(code);
+        resultTask.text = "Waiting..."; 
+        resultTask.color = Color.yellow;
         
-        if (EmitAndExecute(compilation, _selectedTask.tests))
+        string code = inputField.text;
+        var compilation = await TaskAsync.Run(() => CompileCode(code));
+        
+        bool success = await TaskAsync.Run(() => EmitAndExecute(compilation, _selectedTask.tests));
+
+        if (success)
         {
-            Debug.Log("Код успешно выполнен.");
+            resultTask.text = "Код успешно выполнен."; 
+            resultTask.color = Color.green;
         }
     }
     
@@ -137,6 +144,7 @@ public class DynamicCode
                                       $" входные данные '{test.input}'" +
                                       $", ожидаемый результат '{test.expected}'" +
                                       $", актуальный результат '{actualResult}'";
+                    resultTask.color = Color.red;
                     return false;
                 }
             }
