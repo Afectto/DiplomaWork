@@ -27,6 +27,7 @@ public class TileManager
                 GameObject tile = GameObject.Instantiate(tilePrefab, tilePosition, quaternion.identity, parent);
                 _tiles[new Vector2Int(x, y)] = tile;
                 _tileData[new Vector2Int(x, y)] = new TileData(TileType.Empty, null);
+                tile.transform.localScale *= _gridManager.Grid.Setting.CellSize;
             }
         }
     }
@@ -89,8 +90,7 @@ public class TileManager
                 }
 
                 var boxCollider = _tiles[new Vector2Int(x, y)].AddComponent<BoxCollider2D>();
-                boxCollider.size *= _gridManager.Grid.Setting.CellSize;
-                boxCollider.isTrigger = tileData.Type == TileType.Interest || tileData.Type == TileType.End || tileData.Type == TileType.Start;
+                boxCollider.isTrigger = tileData.Type != TileType.Wall;
                 var spriteRenderer = tile.GetComponentInChildren<SpriteRenderer>();
                 spriteRenderer.sortingOrder = 1;
             }
@@ -151,7 +151,7 @@ public class TileManager
         return paths;
     }
 
-    private bool[] GetWalkableArray()
+    public bool[] GetWalkableArray()
     {
         bool[] walkableArray = new bool[_gridManager.Grid.GetWidth() * _gridManager.Grid.GetHeight()];
 
@@ -170,8 +170,10 @@ public class TileManager
         {
             Vector2Int randomPoint = GetRandomTile();
 
-            if (_occupiedTiles.Contains(randomPoint))
-                continue;
+            while (_occupiedTiles.Contains(randomPoint))
+            {
+                randomPoint = GetRandomTile();
+            }
 
             _occupiedTiles.Add(randomPoint);
             MarkTile(randomPoint, color, type);
@@ -198,8 +200,8 @@ public class TileManager
     private Vector2Int GetRandomTile()
     {
         return new Vector2Int(
-            Random.Range(0, _gridManager.Grid.GetWidth()),
-            Random.Range(0, _gridManager.Grid.GetHeight()));
+            Random.Range(1, _gridManager.Grid.GetWidth()),
+            Random.Range(1, _gridManager.Grid.GetHeight()));
     }
     
     public Task GetTaskForTile(Vector2Int position)

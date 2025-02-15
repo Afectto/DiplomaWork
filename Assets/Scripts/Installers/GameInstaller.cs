@@ -21,6 +21,21 @@ public class GameInstaller : MonoInstaller
         
         Container
             .BindInterfacesAndSelfTo<Player>()
+            .FromComponentInHierarchy()
+            .AsSingle();
+        Enemy();
+    }
+
+
+    private void Enemy()
+    {
+        Container
+            .Bind<ObjectPool<Enemy>>()
+            .To<EnemyPool>()
+            .AsSingle();
+
+        Container
+            .BindInterfacesAndSelfTo<EnemySpawner>()
             .FromComponentsInHierarchy()
             .AsSingle();
     }

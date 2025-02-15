@@ -194,6 +194,232 @@
         }
       ],
       "difficulty": 2
+    },
+    {
+      "id": 11,
+      "text": "Напишите программу, которая возвращает длину строки.",
+      "baseCode": "\n    public int main(string input)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "Hello",
+          "expected": "5",
+          "inputTypes": [
+            "string"
+          ]
+        },
+        {
+          "input": "Программирование",
+          "expected": "15",
+          "inputTypes": [
+            "string"
+          ]
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": 12,
+      "text": "Напишите программу, которая возвращает сумму элементов массива.",
+      "baseCode": "\n    public int main(int[] numbers)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "1, 2, 3",
+          "expected": "6",
+          "inputTypes": [
+            "[int]"
+          ]
+        },
+        {
+          "input": "10, 20, 30",
+          "expected": "60",
+          "inputTypes": [
+            "[int]"
+          ]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 13,
+      "text": "Напишите программу, которая проверяет, содержится ли число в массиве.",
+      "baseCode": "\n    public string main(int[] numbers, int value)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "1, 2, 3, 4 | 3",
+          "expected": "Да",
+          "inputTypes": [
+            "[int]",
+            "int"
+          ]
+        },
+        {
+          "input": "5, 6, 7 | 8",
+          "expected": "Нет",
+          "inputTypes": [
+            "[int]",
+            "int"
+          ]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 14,
+      "text": "Напишите программу, которая возвращает количество четных чисел в массиве.",
+      "baseCode": "\n    public int main(int[] numbers)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "1, 2, 3, 4",
+          "expected": "2",
+          "inputTypes": [
+            "[int]"
+          ]
+        },
+        {
+          "input": "10, 15, 20, 25",
+          "expected": "2",
+          "inputTypes": [
+            "[int]"
+          ]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 15,
+      "text": "Напишите программу, которая возвращает количество слов в строке.",
+      "baseCode": "\n    public int main(string sentence)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "Привет, как дела?",
+          "expected": "3",
+          "inputTypes": [
+            "string"
+          ]
+        },
+        {
+          "input": "Программирование — это интересно.",
+          "expected": "3",
+          "inputTypes": [
+            "string"
+          ]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 16,
+      "text": "Напишите программу, которая возвращает минимальное значение в массиве.",
+      "baseCode": "\n    public int main(int[] numbers)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "5, 3, 8, 1",
+          "expected": "1",
+          "inputTypes": [
+            "[int]"
+          ]
+        },
+        {
+          "input": "10, 20, 5, 15",
+          "expected": "5",
+          "inputTypes": [
+            "[int]"
+          ]
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": 17,
+      "text": "Напишите программу, которая возвращает индекс числа в массиве (или -1, если числа нет).",
+      "baseCode": "\n    public int main(int[] numbers, int value)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "1, 2, 3, 4 | 3",
+          "expected": "2",
+          "inputTypes": [
+            "[int]",
+            "int"
+          ]
+        },
+        {
+          "input": "10, 20, 30 | 25",
+          "expected": "-1",
+          "inputTypes": [
+            "[int]",
+            "int"
+          ]
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": 18,
+      "text": "Напишите программу, которая возвращает строку в верхнем регистре.",
+      "baseCode": "\n    public string main(string input)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "hello",
+          "expected": "HELLO",
+          "inputTypes": [
+            "string"
+          ]
+        },
+        {
+          "input": "Привет",
+          "expected": "ПРИВЕТ",
+          "inputTypes": [
+            "string"
+          ]
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": 19,
+      "text": "Напишите программу, которая возвращает сумму всех чисел в массиве, больших заданного значения.",
+      "baseCode": "\n    public int main(int[] numbers, int minValue)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "1, 2, 3, 4, 5 | 3",
+          "expected": "9",
+          "inputTypes": [
+            "[int]",
+            "int"
+          ]
+        },
+        {
+          "input": "10, 20, 30 | 15",
+          "expected": "50",
+          "inputTypes": [
+            "[int]",
+            "int"
+          ]
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": 20,
+      "text": "Напишите программу, которая возвращает первое простое число в массиве.",
+      "baseCode": "\n    public int main(int[] numbers)\n    {\n        \n    }",
+      "tests": [
+        {
+          "input": "4, 6, 7, 8",
+          "expected": "7",
+          "inputTypes": [
+            "[int]"
+          ]
+        },
+        {
+          "input": "10, 15, 17",
+          "expected": "17",
+          "inputTypes": [
+            "[int]"
+          ]
+        }
+      ],
+      "difficulty": 4
     }
   ]
 }

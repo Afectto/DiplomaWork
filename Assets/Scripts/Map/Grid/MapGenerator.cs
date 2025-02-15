@@ -18,16 +18,31 @@ public class MapGenerator : MonoBehaviour
     private TaskManager _taskManager;
     
     public GridManager GridManagerInfo => _gridManager;
+    public PathfindingManager PathfindingManager => _pathfindingManager;
+    public TileManager TileManager => _tileManager;
 
     [Inject]
     private void Inject(TaskManager taskManager)
     {
+        LoadLevelSettings(1);
         _gridManager = new GridManager(settingGrid);
         _pathfindingManager = new PathfindingManager(_gridManager.Grid, isAllowDiagonal);
         _tileManager = new TileManager(_gridManager);
         _taskManager = taskManager;
-
+        
         GenerateMap();
+    }
+    
+    private void LoadLevelSettings(int level)
+    {
+        var saveData = SaveSystem.Load<SaveLevelData>();
+        var levelSettings = saveData.LevelSettingsDictionary[level];
+        settingGrid = levelSettings.SettingGrid;
+        dangerPointsCount = levelSettings.DangerPointsCount;
+        interestPointsCount = levelSettings.InterestPointsCount;
+        wallCount = levelSettings.WallCount;
+        minTasksDifficulty = levelSettings.MinTasksDifficulty;
+        maxTasksDifficulty = levelSettings.MaxTasksDifficulty;
     }
 
     private void GenerateMap()

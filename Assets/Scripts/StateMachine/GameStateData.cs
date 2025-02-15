@@ -2,5 +2,6 @@
 {
     Game,
     Pause,
-    Quest
+    Quest,
+    GameOver
 }

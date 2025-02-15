@@ -3,14 +3,6 @@ using System.Collections.Generic;
 
 namespace InGameCodeEditor.Lexer
 {
-    internal struct InputStringMatchInfo
-    {
-        // Public
-        public int startIndex;
-        public int endIndex;
-        public string htmlColor;
-    }
-
     internal class InputStringLexer : ILexer
     {
         // Private
