@@ -36,6 +36,9 @@ public class TileManager
     {
         Vector2Int start = new Vector2Int(0, 0);
         Vector2Int end = new Vector2Int(_gridManager.Grid.GetWidth() - 1, _gridManager.Grid.GetHeight() - 1);
+          
+        _occupiedTiles.Add(start);
+        _occupiedTiles.Add(end);
 
         MarkTile(start, Color.cyan, TileType.Start);
         MarkTile(end, Color.magenta, TileType.End);
@@ -166,6 +169,10 @@ public class TileManager
 
     private void PlacePoints(int count, Color color, TileType type)
     {
+        if (color == Color.red)
+        {
+            color = new Color(1f, 0f, 0f, 0);
+        }
         for (int i = 0; i < count; i++)
         {
             Vector2Int randomPoint = GetRandomTile();

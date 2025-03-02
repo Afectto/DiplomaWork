@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -44,5 +45,11 @@ public class QuestController : MonoBehaviour
             var task = _taskManager.GetTaskForTile(new Vector2Int(gridObject.x, gridObject.y));
             codeExecutor.SetTask(task);
         }
+    }
+
+    private void OnDestroy()
+    {
+        _stateMachine.OnChangeState -= OnChangeState;
+        codeExecutor.OnTaskComplete -= OnTaskComplete;
     }
 }

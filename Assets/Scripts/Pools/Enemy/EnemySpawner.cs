@@ -50,7 +50,7 @@ public class EnemySpawner : ItemSpawners<Enemy>, IInitializable
         
         var randomTile = emptyEnemyTile[Random.Range(0, emptyEnemyTile.Count)];
         _tileCreatedEnemy[randomTile.Key] = true;
-        enemy.transform.position = _mapGenerator.GetGrid().GetWorldPositionByCenterCell(randomTile.Key.x, randomTile.Key.y);
+        enemy.SetStartPosition(_mapGenerator.GetGrid().GetWorldPositionByCenterCell(randomTile.Key.x, randomTile.Key.y));
     }
 
 }

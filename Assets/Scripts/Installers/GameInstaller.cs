@@ -19,11 +19,21 @@ public class GameInstaller : MonoInstaller
             .AsSingle()
             .NonLazy();
         
+        Enemy();
+        PlayerInit();
+    }
+
+    private void PlayerInit()
+    {
         Container
             .BindInterfacesAndSelfTo<Player>()
             .FromComponentInHierarchy()
             .AsSingle();
-        Enemy();
+        
+        Container
+            .BindInterfacesAndSelfTo<PlayerStats>()
+            .AsSingle()
+            .NonLazy(); 
     }
 
 

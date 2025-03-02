@@ -46,6 +46,7 @@ public class TaskManager
             {
                 var randomTask = filteredTasks[Random.Range(0, filteredTasks.Count)];
                 AssignTaskToTile(tile.Key, randomTask);
+                filteredTasks.Remove(randomTask);
             }
         }
     }

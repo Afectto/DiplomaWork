@@ -2,25 +2,42 @@
 using UnityEngine;
 using Zenject;
 
+
 public class Player : Character
 {
     [SerializeField] private float speed;
     [SerializeField] private TextMeshPro tooltip;
 
+    private PlayerStats _playerStats;
     private MapGenerator _mapGenerator;
     private Grid<GridObject> _grid;
     private GameStateMachine _stateMachine;
     private Animator _animator;
-    
+    private PlayerController _playerController;
+
+    public StatDecorator PlayerStats => _playerStats.Stats;
     public GridObject TileTask { get; private set; }
 
     [Inject]
-    private void Inject(MapGenerator mapGenerator, GameStateMachine stateMachine)
+    private void Inject(MapGenerator mapGenerator, GameStateMachine stateMachine, PlayerStats playerStats)
     {
         _stateMachine = stateMachine;
-        _mapGenerator = mapGenerator; 
+        _mapGenerator = mapGenerator;
+        _playerStats = playerStats;
         tooltip.gameObject.SetActive(false);
         _animator = GetComponent<Animator>();
+        _playerController = GetComponent<PlayerController>();
+        _playerController.Initialize(_animator, speed);
+        _playerStats.OnChangeStats += ChangeStats;
+    }
+
+    private void ChangeStats(string nameStat)
+    {
+        if (nameStat == StatsTypeName.Health)
+        {
+            _healthMax = _playerStats.Stats.Health;
+            Health += 0;
+        }
     }
 
     private void Start()
@@ -31,19 +48,7 @@ public class Player : Character
 
     private void FixedUpdate()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-
-        _animator.SetFloat("Horizontal", moveX);
-        _animator.SetFloat("Vertical", moveY);
-        _animator.SetFloat("Speed", Mathf.Abs(moveX) + Mathf.Abs(moveY));
-        
-        Vector3 newPosition = transform.localPosition + new Vector3(moveX, moveY, 0) * speed * Time.deltaTime;
-
-        if (CanPlayerEnterCell(newPosition))
-        {
-            transform.localPosition = newPosition;
-        }
+        _playerController.HandleMovement();
     }
 
     private void Update()
@@ -52,15 +57,6 @@ public class Player : Character
         {
             _stateMachine.ChangeState(GameStateData.Quest);
         }
-    }
-
-    private bool CanPlayerEnterCell(Vector3 worldPosition)
-    {
-        var offsetPosition = worldPosition;
-        int x, y;
-        _grid.GetXY(offsetPosition, out x, out y);
-        var cell = _grid.GetGridObject(x, y);
-        return cell != null && cell.isWalkable;
     }
 
     public void OnFindInterestTile(Vector3 pos)

@@ -13,7 +13,7 @@ public abstract class Character : MonoBehaviour, ITargetable, IDamageable
     public event Action OnDeath;
     public event Action<float> OnChangeHealth;
     
-    public float Health
+    public virtual float Health
     {
         get => health;
         protected set
@@ -44,9 +44,20 @@ public abstract class Character : MonoBehaviour, ITargetable, IDamageable
         Health -= value;
     }
     
-    private void UpdateHealth()
+    protected void UpdateHealth()
     {
         if(fill == null) return;
         fill.fillAmount = Health / _healthMax;
     }
+
+    protected void InvokeOnDeath()
+    {
+        OnDeath?.Invoke();
+    }
+
+    protected void InvokeOnChangeHealth(float value)
+    {
+        OnChangeHealth?.Invoke(value);
+    }
+    
 }
