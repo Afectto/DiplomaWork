@@ -31,6 +31,7 @@ public abstract class FightSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         hit.gameObject.SetActive(false);
+        hit.transform.position = Vector3.zero;
     }
 
     protected abstract void Update();

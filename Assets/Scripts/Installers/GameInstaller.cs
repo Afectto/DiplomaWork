@@ -1,9 +1,11 @@
+using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
+        Time.timeScale = 1;
         Container
             .BindInterfacesAndSelfTo<MapGenerator>()
             .FromComponentsInHierarchy()
