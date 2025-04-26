@@ -129,13 +129,6 @@ public class TileManager
     {
         _tileData[position].Type = TileType.Empty;
         _tileData[position].IsWalkable = true;
-
-        if (_tiles.ContainsKey(position))
-        {
-            var renderer = _tiles[position].GetComponentInChildren<SpriteRenderer>();
-            if (renderer != null)
-                renderer.color = Color.white;
-        }
     }
 
     private List<(Vector2Int start, Vector2Int end)> GetAllPaths(PathfindingManager pathfinding)
@@ -187,6 +180,16 @@ public class TileManager
 
     public void MarkTile(Vector2Int position, TileType type)
     {
+        if(type == TileType.Empty)
+        {
+            if (_tiles.ContainsKey(position))
+            {
+                GameObject.Destroy(_tiles[position]);
+                _tiles.Remove(position);
+                _tileData.Remove(position);
+            }
+            return;
+        }
         if (_tiles.ContainsKey(position))
         {
             var renderer = _tiles[position].GetComponentInChildren<SpriteRenderer>();
@@ -251,6 +254,17 @@ public class TileManager
             Type = type;
             AssignedTask = task;
             IsWalkable = type != TileType.Wall;
+        }
+    }
+
+    public void LoadLevelData(MapData levelDataMapConfiguration)
+    {
+        foreach (var tileData in levelDataMapConfiguration.Tiles)
+        {
+            if (_tiles.ContainsKey(tileData.Position))
+            {
+                MarkTile(tileData.Position, tileData.Type);
+            }
         }
     }
 }

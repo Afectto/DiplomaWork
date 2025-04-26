@@ -53,4 +53,8 @@ public class EnemySpawner : ItemSpawners<Enemy>, IInitializable
         enemy.SetStartPosition(_mapGenerator.GetGrid().GetWorldPositionByCenterCell(randomTile.Key.x, randomTile.Key.y));
     }
 
+    public List<Enemy> GetActiveObjects()
+    {
+        return _enemyItemPool.GetCurrentActiveItem();
+    }
 }

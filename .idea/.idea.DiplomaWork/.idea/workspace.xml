@@ -23,18 +23,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a452b9b-4b28-4b72-9f26-3c82095537af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/EnemyData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/EnemyData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/LevelData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/LevelData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/MapData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/MapData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/PlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/PlayerData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/TaskData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/TaskData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/TileData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData/TileData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileSprites.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileSprites.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.zip.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts.zip.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Installers/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Installers/GameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Enemy.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/Enemy/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/Enemy/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/SerializableClasses/MyVector3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/SerializableClasses/MyVector3.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +67,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63C445D7-76C7-4089-9561-3F2852622992/c5/5481c451/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/645666A8-CEA4-4BF5-905E-0EF193655174/43/c49a2cb5/CodeCompiler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/694E56E2-1316-4B53-AD77-CF60926C3A47/b3/3b27304b/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/f6/a42532ed/Tween.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86489288-C18F-4069-B2FD-71FEF561F59C/5e/48f930a7/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C0B7B90D-34A5-4066-A723-4DAD69255116/25/91e2b6ea/AsyncVoidMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C0B7B90D-34A5-4066-A723-4DAD69255116/4c/64d23f6b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -63,10 +76,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F843D796-055E-4DEA-A447-E7BA073CFF5F/ac/5581231a/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ea3dec1d8b8e407ab69cfcacfa6f928b1cbe00/be/e0b279fe/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/1b/1fe4284b/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/ed/31258e48/RuntimeMethodInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5B813995-9670-4241-9E44-AFC6B56DE16C/3/CSharpCodeProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/905CC628-39E1-4294-806C-19DCC852D0A5/2/CSharpScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B649EE56-DE85-4DCF-A111-602D7B9FFF6D/2C/ScriptOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B649EE56-DE85-4DCF-A111-602D7B9FFF6D/32/ParameterValidationHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3981d658666ec9cc1e6958fe22f8614bfe02ccb6625b056c3ece3729c9262/JsonConvert.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/GameState/GameStateMachine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/Instatters/GameInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/Instatters/ProjectInstaller.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,6 +145,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -178,13 +194,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17604">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="17604" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -219,7 +237,7 @@
       <workItem from="1741854358493" duration="2720000" />
       <workItem from="1742300599206" duration="1903000" />
       <workItem from="1743056068513" duration="247000" />
-      <workItem from="1745660728558" duration="2654000" />
+      <workItem from="1745660728558" duration="8355000" />
     </task>
     <servers />
   </component>
@@ -247,10 +265,23 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="887" y="112" width="785" height="855" key="find.popup" timestamp="1743056323836">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="887" y="112" width="785" height="855" key="find.popup/-1920.242.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1743056323836" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs</url>
+          <line>30</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\MapGenerator.cs" containingFunctionPresentation="Method 'Inject'">
+            <startOffsets>
+              <option value="1067" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1112" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

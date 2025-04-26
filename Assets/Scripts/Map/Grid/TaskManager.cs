@@ -65,5 +65,21 @@ public class TaskManager
             }
         }
     }
-    
+
+    public List<TaskData> GetTaskData()
+    {
+        return _tasks.Select(task => new TaskData(task.Key, task.Value.id, false)).ToList();
+    }
+
+    public void LoadLevelData(List<TaskData> levelDataTasks)
+    {
+        foreach (var taskData in levelDataTasks)
+        {
+            if (_tasksJson.Any(task => task.id == taskData.ID))
+            {
+                var task = _tasksJson.First(task => task.id == taskData.ID);
+                AssignTaskToTile(taskData.Position, task);
+            }
+        }
+    }
 }

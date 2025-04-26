@@ -1446,6 +1446,7 @@ GameObject:
   - component: {fileID: 758142824}
   - component: {fileID: 758142826}
   - component: {fileID: 758142825}
+  - component: {fileID: 758142827}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1512,6 +1513,18 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
+--- !u!114 &758142827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758142823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e9c1a75f29c2a41b1ed2b8219e558d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &867486319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,14 +4554,14 @@ GameObject:
   - component: {fileID: 2124048361}
   - component: {fileID: 2124048360}
   - component: {fileID: 2124048359}
-  - component: {fileID: 2124048358}
+  - component: {fileID: 2124048362}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2124048357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4569,23 +4582,6 @@ RectTransform:
   m_AnchoredPosition: {x: 916.2, y: 489.5}
   m_SizeDelta: {x: 44.32, y: 44.56}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2124048358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124048356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460bd88836c870841849f3373b9dc493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 673458354}
-  panelFilling: {fileID: 673458354}
-  closeButton: {fileID: 2033927270}
-  IsNeedHideThis: 0
-  hidePart: []
 --- !u!114 &2124048359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4668,6 +4664,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124048356}
   m_CullTransparentMesh: 1
+--- !u!114 &2124048362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124048356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b04e4764a177649ab30a453320967c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 673458354}
+  back: {fileID: 2033927270}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4680,5 +4690,5 @@ SceneRoots:
   - {fileID: 1675932665}
   - {fileID: 1918900010}
   - {fileID: 1248855444}
-  - {fileID: 758142824}
   - {fileID: 57243308}
+  - {fileID: 758142824}

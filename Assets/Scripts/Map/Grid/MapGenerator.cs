@@ -1,14 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-
-[Serializable]
-public struct TileSprites
-{
-    public TileManager.TileType type;
-    public Sprite Sprite;
-}
 
 public class MapGenerator : MonoBehaviour
 {
@@ -27,7 +19,8 @@ public class MapGenerator : MonoBehaviour
     private PathfindingManager _pathfindingManager;
     private TileManager _tileManager;
     private TaskManager _taskManager;
-    
+    private MapData _mapData;
+
     public GridManager GridManagerInfo => _gridManager;
     public PathfindingManager PathfindingManager => _pathfindingManager;
     public TileManager TileManager => _tileManager;
@@ -35,15 +28,38 @@ public class MapGenerator : MonoBehaviour
     [Inject]
     private void Inject(TaskManager taskManager)
     {
-        LoadLevelSettings(1);
+        var levelData = SaveSystem.Load<LevelData>();
+        if (levelData.IsNeedSave)
+        {
+            LoadLevelSettings(levelData.Level);
+        }
+        else
+        {
+            LoadLevelSettings(1);
+        }
         _gridManager = new GridManager(settingGrid);
         _pathfindingManager = new PathfindingManager(_gridManager.Grid, isAllowDiagonal);
         _tileManager = new TileManager(_gridManager, tileSprites);
         _taskManager = taskManager;
-        
-        GenerateMap();
+
+        if (levelData.IsNeedSave)
+        {
+            LoadLevel(levelData);
+        }
+        else
+        {
+            GenerateMap();
+        }
     }
-    
+
+    private void LoadLevel(LevelData levelData)
+    {
+        _tileManager.InitializeTiles(tilePrefab, transform);
+        _tileManager.LoadLevelData(levelData.MapConfiguration);
+        _taskManager.LoadLevelData(levelData.Tasks);
+        CreateBoundaryColliders();
+    }
+
     private void LoadLevelSettings(int level)
     {
         var saveData = SaveSystem.Load<SaveLevelData>();
@@ -64,6 +80,29 @@ public class MapGenerator : MonoBehaviour
         _tileManager.GenerateWalls(wallCount, _pathfindingManager);
         _taskManager.GenerateTasks(_tileManager.TileDataInfo, (minTasksDifficulty, maxTasksDifficulty));
         CreateBoundaryColliders();
+        SetTileData();
+    }
+    
+    public List<TaskData> GetTaskData()
+    {
+        return _taskManager.GetTaskData();
+    }
+    
+    private void SetTileData()
+    {
+        List<TileData> tileDataList = new List<TileData>();
+        
+        foreach (var tile in _tileManager.TileDataInfo)
+        {
+            tileDataList.Add(new TileData(tile.Key, tile.Value.Type));
+        }
+        _mapData = new MapData(settingGrid.Width, settingGrid.Height);
+        _mapData.Tiles = tileDataList;
+    }
+
+    public MapData GetMapData()
+    {
+        return _mapData;
     }
 
     public Task GetTaskForTile(Vector2Int position)
@@ -124,6 +163,5 @@ public class MapGenerator : MonoBehaviour
         var collider = tile.AddComponent<BoxCollider2D>();
         collider.isTrigger = false;
     }
-    
 
 }
