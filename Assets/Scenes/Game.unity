@@ -3852,6 +3852,17 @@ MonoBehaviour:
   wallCount: 1000
   minTasksDifficulty: 1
   maxTasksDifficulty: 2
+  tileSprites:
+  - type: 5
+    Sprite: {fileID: 1262487953148312860, guid: 7d9033f277cc4f247932c1b6e56e144e, type: 3}
+  - type: 2
+    Sprite: {fileID: 21300000, guid: ff07b73d79bf8ee479bdd9f5455eb3be, type: 3}
+  - type: 1
+    Sprite: {fileID: 21300000, guid: ff07b73d79bf8ee479bdd9f5455eb3be, type: 3}
+  - type: 4
+    Sprite: {fileID: 21300000, guid: 305a93216d036544a99fa49950ad3d14, type: 3}
+  - type: 3
+    Sprite: {fileID: 21300000, guid: e7cc574d38b65a646a2a1c9c885546f3, type: 3}
 --- !u!66 &1918900013
 CompositeCollider2D:
   m_ObjectHideFlags: 0

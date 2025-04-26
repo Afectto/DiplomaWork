@@ -9,11 +9,13 @@ public class TileManager
     private Dictionary<Vector2Int, GameObject> _tiles = new Dictionary<Vector2Int, GameObject>();
     private Dictionary<Vector2Int, TileData> _tileData = new Dictionary<Vector2Int, TileData>();
     private HashSet<Vector2Int> _occupiedTiles = new HashSet<Vector2Int>();
+    private List<TileSprites> _tileSprites;
 
     public Dictionary<Vector2Int, TileData> TileDataInfo => _tileData;
 
-    public TileManager(GridManager gridManager)
+    public TileManager(GridManager gridManager, List<TileSprites> tileSprites)
     {
+        _tileSprites = tileSprites;
         _gridManager = gridManager;
     }
 
@@ -40,14 +42,14 @@ public class TileManager
         _occupiedTiles.Add(start);
         _occupiedTiles.Add(end);
 
-        MarkTile(start, Color.cyan, TileType.Start);
-        MarkTile(end, Color.magenta, TileType.End);
+        MarkTile(start, TileType.Start);
+        MarkTile(end, TileType.End);
     }
 
     public void PlaceDangerAndInterestPoints(int dangerPointsCount, int interestPointsCount)
     {
-        PlacePoints(dangerPointsCount, Color.red, TileType.Danger);
-        PlacePoints(interestPointsCount, Color.yellow, TileType.Interest);
+        PlacePoints(dangerPointsCount, TileType.Danger);
+        PlacePoints(interestPointsCount, TileType.Interest);
     }
 
     public void GenerateWalls(int wallCount, PathfindingManager pathfinding)
@@ -64,7 +66,7 @@ public class TileManager
                 continue;
 
             _occupiedTiles.Add(randomPoint);
-            MarkTile(randomPoint, Color.gray, TileType.Wall);
+            MarkTile(randomPoint, TileType.Wall);
 
             _tileData[randomPoint].IsWalkable = false;
 
@@ -167,12 +169,8 @@ public class TileManager
         return walkableArray;
     }
 
-    private void PlacePoints(int count, Color color, TileType type)
+    private void PlacePoints(int count, TileType type)
     {
-        if (color == Color.red)
-        {
-            color = new Color(1f, 0f, 0f, 0);
-        }
         for (int i = 0; i < count; i++)
         {
             Vector2Int randomPoint = GetRandomTile();
@@ -183,18 +181,22 @@ public class TileManager
             }
 
             _occupiedTiles.Add(randomPoint);
-            MarkTile(randomPoint, color, type);
+            MarkTile(randomPoint, type);
         }
     }
 
-    private void MarkTile(Vector2Int position, Color color, TileType type)
+    public void MarkTile(Vector2Int position, TileType type)
     {
         if (_tiles.ContainsKey(position))
         {
             var renderer = _tiles[position].GetComponentInChildren<SpriteRenderer>();
             if (renderer != null)
             {
-                renderer.color = color;
+                var sprite = GetSpriteForTileType(type);
+                if (sprite != null)
+                {
+                    renderer.sprite = sprite;
+                }
             }
 
             if (_tileData.ContainsKey(position))
@@ -203,7 +205,19 @@ public class TileManager
             }
         }
     }
-
+    
+    private Sprite GetSpriteForTileType(TileType type)
+    {
+        foreach (var tileSprite in _tileSprites)
+        {
+            if (tileSprite.type == type)
+            {
+                return tileSprite.Sprite;
+            }
+        }
+        return null;
+    }
+    
     private Vector2Int GetRandomTile()
     {
         return new Vector2Int(

@@ -15,6 +15,21 @@ public class TaskManager
         LoadTasks();
     }
     
+    private void LoadTasks()
+    {
+        string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "Tasks.json");
+        if (File.Exists(jsonFilePath))
+        {
+            string json = File.ReadAllText(jsonFilePath);
+            _tasksJson = JsonUtility.FromJson<TasksWrapper>(json).tasks;
+            Debug.Log("Задачи загружены успешно.");
+        }
+        else
+        {
+            Debug.LogError("Файл задач не найден!");
+        }
+    }
+    
     public void AssignTaskToTile(Vector2Int position, Task task)
     {
         if (!_tasks.ContainsKey(position))
@@ -51,18 +66,4 @@ public class TaskManager
         }
     }
     
-    private void LoadTasks()
-    {
-        string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "Tasks.json");
-        if (File.Exists(jsonFilePath))
-        {
-            string json = File.ReadAllText(jsonFilePath);
-            _tasksJson = JsonUtility.FromJson<TasksWrapper>(json).tasks;
-            Debug.Log("Задачи загружены успешно.");
-        }
-        else
-        {
-            Debug.LogError("Файл задач не найден!");
-        }
-    }
 }

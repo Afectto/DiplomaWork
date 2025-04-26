@@ -1,5 +1,14 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+
+[Serializable]
+public struct TileSprites
+{
+    public TileManager.TileType type;
+    public Sprite Sprite;
+}
 
 public class MapGenerator : MonoBehaviour
 {
@@ -11,6 +20,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int wallCount;
     [SerializeField, Min(1)] private int minTasksDifficulty;
     [SerializeField, Min(1)] private int maxTasksDifficulty;
+
+    [SerializeField] private List<TileSprites> tileSprites;
 
     private GridManager _gridManager;
     private PathfindingManager _pathfindingManager;
@@ -27,7 +38,7 @@ public class MapGenerator : MonoBehaviour
         LoadLevelSettings(1);
         _gridManager = new GridManager(settingGrid);
         _pathfindingManager = new PathfindingManager(_gridManager.Grid, isAllowDiagonal);
-        _tileManager = new TileManager(_gridManager);
+        _tileManager = new TileManager(_gridManager, tileSprites);
         _taskManager = taskManager;
         
         GenerateMap();
@@ -75,25 +86,43 @@ public class MapGenerator : MonoBehaviour
         float width = settingGrid.Width;
         float height = settingGrid.Height;
         float cellSize = settingGrid.CellSize;
-        Vector3 originPosition = settingGrid.OriginPosition.ToVector3();
+        Vector3 originPosition = settingGrid.OriginPosition;
 
-        // Создание коллайдеров по краям
-        CreateCollider(new Vector3(width / 2, -cellSize / 2) * cellSize + originPosition, new Vector2(width * cellSize, cellSize)); // Нижний край
-        CreateCollider(new Vector3(width / 2, height + cellSize / 2) * cellSize + originPosition, new Vector2(width * cellSize, cellSize)); // Верхний край
-        CreateCollider(new Vector3(-cellSize / 2, height / 2) * cellSize + originPosition, new Vector2(cellSize, height * cellSize)); // Левый край
-        CreateCollider(new Vector3(width + cellSize / 2, height / 2) * cellSize + originPosition, new Vector2(cellSize, height * cellSize)); // Правый край
-        
+        // Смещение на пол тайла
+        Vector3 offset = new Vector3(cellSize / 2, cellSize / 2, 0);
+
+        // Создание тайлов для нижнего и верхнего края
+        for (int x = -1; x <= width; x++) // Увеличиваем диапазон, чтобы покрыть края
+        {
+            Vector3 bottomPosition = originPosition + new Vector3(x * cellSize, -1 * cellSize, 0) + offset;
+            Vector3 topPosition = originPosition + new Vector3(x * cellSize, height * cellSize, 0) + offset;
+            CreateTile(bottomPosition);
+            CreateTile(topPosition);
+        }
+
+        // Создание тайлов для левого и правого края
+        for (int y = 0; y < height; y++)
+        {
+            Vector3 leftPosition = originPosition + new Vector3(-1 * cellSize, y * cellSize, 0) + offset;
+            Vector3 rightPosition = originPosition + new Vector3(width * cellSize, y * cellSize, 0) + offset;
+            CreateTile(leftPosition);
+            CreateTile(rightPosition);
+        }
+
+        // Заполнение углов
+        CreateTile(originPosition + new Vector3(-1 * cellSize, -1 * cellSize, 0) + offset); // Левый нижний угол
+        CreateTile(originPosition + new Vector3(-1 * cellSize, height * cellSize, 0) + offset); // Левый верхний угол
+        CreateTile(originPosition + new Vector3(width * cellSize, -1 * cellSize, 0) + offset); // Правый нижний угол
+        CreateTile(originPosition + new Vector3(width * cellSize, height * cellSize, 0) + offset); // Правый верхний угол
     }
 
-    private void CreateCollider(Vector2 position, Vector2 size)
+    private void CreateTile(Vector3 position)
     {
-        GameObject colliderObject = new GameObject("BoundaryCollider");
-        BoxCollider2D collider = colliderObject.AddComponent<BoxCollider2D>();
-        collider.size = size * 1.5f;
-        collider.transform.position = position;
-        collider.transform.parent = transform;
         GameObject tile = Instantiate(tilePrefab, position, Quaternion.identity, transform);
-        tile.transform.localScale = new Vector3(size.x * 1.5f, size.y * 1.5f, 1);
+        tile.transform.localScale = new Vector3(settingGrid.CellSize, settingGrid.CellSize, 1);
+        tile.name = "BoundaryTile";
+        var collider = tile.AddComponent<BoxCollider2D>();
+        collider.isTrigger = false;
     }
     
 
