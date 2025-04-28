@@ -94,14 +94,19 @@ public class TileManager
                     continue;
                 }
 
-                var boxCollider = _tiles[new Vector2Int(x, y)].AddComponent<BoxCollider2D>();
-                boxCollider.isTrigger = tileData.Type != TileType.Wall;
+                SetCollider(x, y, tileData.Type);
                 var spriteRenderer = tile.GetComponentInChildren<SpriteRenderer>();
                 spriteRenderer.sortingOrder = 1;
             }
         }
     }
 
+    private void SetCollider(int x, int y, TileType tileType)
+    {
+        var boxCollider = _tiles[new Vector2Int(x, y)].AddComponent<BoxCollider2D>();
+        boxCollider.isTrigger = tileType != TileType.Wall;
+    }
+    
     private bool IsPathsValidAfterWall(PathfindingManager pathfinding, List<(Vector2Int start, Vector2Int end)> paths)
     {
         foreach (var (start, end) in paths)
@@ -186,7 +191,6 @@ public class TileManager
             {
                 GameObject.Destroy(_tiles[position]);
                 _tiles.Remove(position);
-                _tileData.Remove(position);
             }
             return;
         }
@@ -261,9 +265,11 @@ public class TileManager
     {
         foreach (var tileData in levelDataMapConfiguration.Tiles)
         {
-            if (_tiles.ContainsKey(tileData.Position))
+            Vector2Int position = tileData.Position;
+            if (_tiles.ContainsKey(position))
             {
-                MarkTile(tileData.Position, tileData.Type);
+                SetCollider(position.x, position.y, tileData.Type);
+                MarkTile(position, tileData.Type);
             }
         }
     }
