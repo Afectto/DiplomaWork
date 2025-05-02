@@ -23,43 +23,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a452b9b-4b28-4b72-9f26-3c82095537af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/EndTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/EndTile.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/IInteractableTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/IInteractableTile.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/QuestTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/QuestTile.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/State/WinState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/State/WinState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPointsData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPointsData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerStatsItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerStatsItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.rar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.zip.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/FightSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/FightSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/Hit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/Hit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/PauseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/PauseButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/QuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/QuestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/Task.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Installers/ProjectInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Installers/ProjectInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/GridSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/GridSetting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/SaveLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/SaveLevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/Tile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileSprites.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileSprites.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileSprites.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileSprites.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/BasePlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/BasePlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/IPlayerStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/IPlayerStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/StatsTypeName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/StatsTypeName.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/StatDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/StatDecorator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/PlayButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/PlayButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/AfterPauseDelay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/AfterPauseDelay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Tasks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +82,7 @@
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/GameState/GameStateMachine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/Instatters/GameInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/Instatters/ProjectInstaller.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPoints.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/Tile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StateMachine/State/QuestState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Leon_Naming_Android/Assets/Scripts/Entry.cs" root0="FORCE_HIGHLIGHTING" />
@@ -258,7 +240,7 @@
       <workItem from="1745765325114" duration="5493000" />
       <workItem from="1745847699387" duration="4147000" />
       <workItem from="1746164945923" duration="48000" />
-      <workItem from="1746165005649" duration="13993000" />
+      <workItem from="1746165005649" duration="25372000" />
     </task>
     <servers />
   </component>
@@ -340,6 +322,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/Hit.cs</url>
+          <line>25</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Game\FightSystem\Hit.cs" containingFunctionPresentation="Method 'OnTriggerEnter2D'">
+            <startOffsets>
+              <option value="646" />
+            </startOffsets>
+            <endOffsets>
+              <option value="700" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -9,13 +9,8 @@ public class BasePlayerStats : ScriptableObject, IPlayerStat
 
     [Header("Movement Settings")]
     [SerializeField] private float _movementSpeed;
-    [SerializeField] private float _movementSmoothing;
-    [SerializeField] private float _turnSpeed;
-    [SerializeField] private float _turnSmoothing;
-    [SerializeField] private float _gravity;
 
     [Header("Combat Settings")]
-    [SerializeField] private float _comboCooldown;
     [SerializeField] private float _attackSpeed = 1;
 
     public int Damage { get => _damage; }
@@ -23,9 +18,4 @@ public class BasePlayerStats : ScriptableObject, IPlayerStat
     public int Health { get => _health; }
     public int Resists { get => _resists; }
     public float MovementSpeed { get => _movementSpeed; }
-    public float MovementSmoothing {  get => _movementSmoothing; }
-    public float TurnSpeed {  get => _turnSpeed; }
-    public float TurnSmoothing { get => _turnSmoothing; }
-    public float Gravity { get => _gravity; }
-    public float ComboCooldown { get => _comboCooldown; }
 }

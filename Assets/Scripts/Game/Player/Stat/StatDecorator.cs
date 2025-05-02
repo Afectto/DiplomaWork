@@ -14,11 +14,6 @@ public class StatDecorator : IPlayerStat
         { StatsTypeName.Health, new List<StatModifier>() },
         { StatsTypeName.Resists, new List<StatModifier>() },
         { StatsTypeName.MovementSpeed, new List<StatModifier>() },
-        { StatsTypeName.MovementSmoothing, new List<StatModifier>() },
-        { StatsTypeName.TurnSpeed, new List<StatModifier>() },
-        { StatsTypeName.TurnSmoothing, new List<StatModifier>() },
-        { StatsTypeName.Gravity, new List<StatModifier>() },
-        { StatsTypeName.ComboCooldown, new List<StatModifier>() }
     };
 
     public StatDecorator(IPlayerStat baseStats)
@@ -32,11 +27,6 @@ public class StatDecorator : IPlayerStat
     public int Resists => ApplyModifiers(_baseStats.Resists, _statModifiers[StatsTypeName.Resists]);
 
     public float MovementSpeed => ApplyModifiers(_baseStats.MovementSpeed, _statModifiers[StatsTypeName.MovementSpeed]);
-    public float MovementSmoothing => ApplyModifiers(_baseStats.MovementSmoothing, _statModifiers[StatsTypeName.MovementSmoothing]);
-    public float TurnSpeed => ApplyModifiers(_baseStats.TurnSpeed, _statModifiers[StatsTypeName.TurnSpeed]);
-    public float TurnSmoothing => ApplyModifiers(_baseStats.TurnSmoothing, _statModifiers[StatsTypeName.TurnSmoothing]);
-    public float Gravity => ApplyModifiers(_baseStats.Gravity, _statModifiers[StatsTypeName.Gravity]);
-    public float ComboCooldown => ApplyModifiers(_baseStats.ComboCooldown, _statModifiers[StatsTypeName.ComboCooldown]);
 
     private T ApplyModifiers<T>(T baseValue, List<StatModifier> modifiers)
     {

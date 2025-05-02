@@ -13,7 +13,7 @@ public class PlayerStats
     public event Action<string> OnChangeStats;
 
     [Inject]
-    private void Init()
+    private void Inject()
     {
         _playerStat = Resources.Load<BasePlayerStats>("BasePlayerStats");
         _statDecorator = new StatDecorator(_playerStat);
@@ -31,7 +31,39 @@ public class PlayerStats
         {
             Stats.AddModifier(stat.Key, stat.Value);
         }
-    }   
+    }
+
+    public void AddBuff(string statName)
+    {
+        var modifier = GetDefaultModifier(statName);
+        if (modifier != null)
+        {
+            Stats.AddModifier(statName, modifier);
+        }
+        else
+        {
+            Debug.LogWarning($"Нет предустановленного баффа для {statName}");
+        }
+    }
+    
+    private StatModifier GetDefaultModifier(string statName)
+    {
+        switch (statName)
+        {
+            case StatsTypeName.Damage:
+                return new StatModifier(1f); // +5 урона
+            case StatsTypeName.Health:
+                return new StatModifier(1f); // +20 здоровья
+            case StatsTypeName.AttackSpeed:
+                return new StatModifier(1.02f, StatModifierType.Multiplicative);
+            case StatsTypeName.Resists:
+                return new StatModifier(1f);
+            case StatsTypeName.MovementSpeed:
+                return new StatModifier(1.1f, StatModifierType.Multiplicative);
+            default:
+                return null;
+        }
+    }
     
     public void RemoveBuff(string statName, StatModifier modifier)
     {

@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
             case GameStateData.GameOver:
                 var completedTasks = SaveSystem.Load<UserProgressInLevel>();
                 completedTasks.SetData(new List<Task>());//Обнуляем все задачи при проигрыше
+                var playerSkillPointsData = SaveSystem.Load<PlayerSkillPointsData>();
+                playerSkillPointsData.ClearSkillPoints();
                 SaveGame(false);
                 break;
         }

@@ -14,7 +14,21 @@ public class Hit : MonoBehaviour
     {
         if (other.TryGetComponent(out IDamageable character) && character != _thisOwner)
         {
-            character.SetDamage(1, GetComponent<Character>());
+            var owner = GetComponentInParent<Character>();
+            if (owner == null)
+            {
+                return;
+            }
+
+            var player = owner.GetComponent<Player>();
+            if (player != null)
+            {
+                character.SetDamage(player.PlayerStats.Damage, owner);
+            }
+            else
+            {
+                character.SetDamage(1, owner);
+            }
         }
     }
 

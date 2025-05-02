@@ -2,7 +2,6 @@
 using UnityEngine;
 using Zenject;
 
-
 public class Player : Character
 {
     [SerializeField] private float speed;
@@ -28,7 +27,8 @@ public class Player : Character
         tooltip.gameObject.SetActive(false);
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
-        _playerController.Initialize(_animator, speed);
+        _playerController.Initialize(_animator, _playerStats.Stats.MovementSpeed);
+        Health = _playerStats.Stats.Health;
         _playerStats.OnChangeStats += ChangeStats;
     }
 
@@ -50,6 +50,11 @@ public class Player : Character
         {
             _healthMax = _playerStats.Stats.Health;
             Health += 0;
+        }
+
+        if (nameStat == StatsTypeName.MovementSpeed)
+        {
+            _playerController.Initialize(_animator, _playerStats.Stats.MovementSpeed);
         }
     }
     

@@ -18,6 +18,11 @@ public class PlayButton : MonoBehaviour
         
         GetComponent<Button>().onClick.AddListener(() =>
         {
+            if (!isNewGame)
+            {
+                var levelInfo = SaveSystem.Load<LevelInfo>();
+                levelInfo.SetLevel(1);
+            }
             levelData.SetIsNeedSave(!isNewGame);
             sceneChanger.ChangeScene(SceneNames.GameScene);
         });
