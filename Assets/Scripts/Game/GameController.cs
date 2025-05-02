@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -14,6 +13,7 @@ public class GameController : MonoBehaviour
     {
         _player = player;
         _stateMachine = stateMachine;
+        _stateMachine.ChangeState(GameStateData.Game);
         _stateMachine.OnChangeState += OnChangeState;
         _enemySpawner = enemySpawner;
     }
@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
                 SaveGame(true);
                 break;
             case GameStateData.GameOver:
+                var completedTasks = SaveSystem.Load<UserProgressInLevel>();
+                completedTasks.SetData(new List<Task>());//Обнуляем все задачи при проигрыше
                 SaveGame(false);
                 break;
         }
@@ -52,5 +54,8 @@ public class GameController : MonoBehaviour
         levelData.SetLevel(1);
     }
     
-    
+    private void OnApplicationQuit()
+    {
+        // SaveGame(true);
+    }
 }

@@ -35,7 +35,8 @@ public class MapGenerator : MonoBehaviour
         }
         else
         {
-            LoadLevelSettings(1);
+            var levelInfo = SaveSystem.Load<LevelInfo>();
+            LoadLevelSettings(levelInfo.LevelNumber);
         }
         _gridManager = new GridManager(settingGrid);
         _pathfindingManager = new PathfindingManager(_gridManager.Grid, isAllowDiagonal);
@@ -48,6 +49,8 @@ public class MapGenerator : MonoBehaviour
         }
         else
         {
+            var completedTasks = SaveSystem.Load<UserProgressInLevel>();
+            completedTasks.SetData(new List<Task>());//Обнуляем все задачи при генерации уровня
             GenerateMap();
         }
     }
@@ -81,6 +84,12 @@ public class MapGenerator : MonoBehaviour
         _taskManager.GenerateTasks(_tileManager.TileDataInfo, (minTasksDifficulty, maxTasksDifficulty));
         CreateBoundaryColliders();
         SetTileData();
+        UpdateEndPointTaskData();
+    }
+
+    public void UpdateEndPointTaskData()
+    {
+        _tileManager.UpdateEndPointTaskData();
     }
     
     public List<TaskData> GetTaskData()
@@ -118,6 +127,11 @@ public class MapGenerator : MonoBehaviour
     public bool IsQuestTile(GridObject cell)
     {
         return GetTaskForTile(new Vector2Int(cell.x, cell.y)) != null;
+    }
+    
+    public bool IsEndPoint(GridObject cell)
+    {
+        return _tileManager.IsEndPoint(new Vector2Int(cell.x, cell.y));
     }
     
     private void CreateBoundaryColliders()

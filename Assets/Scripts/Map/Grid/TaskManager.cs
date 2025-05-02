@@ -35,6 +35,9 @@ public class TaskManager
         if (!_tasks.ContainsKey(position))
         {
             _tasks.Add(position, task);
+            
+            var userProgress = SaveSystem.Load<UserProgressInLevel>();
+            userProgress.AddTask(task);
         }
     }
 

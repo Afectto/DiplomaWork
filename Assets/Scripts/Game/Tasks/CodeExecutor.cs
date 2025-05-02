@@ -82,6 +82,9 @@ public class DynamicCode
 
         if (success)
         {
+            var userProgress = SaveSystem.Load<UserProgressInLevel>();
+            userProgress.MarkTaskCompleted(_selectedTask.id);
+            FindFirstObjectByType<MapGenerator>().UpdateEndPointTaskData();
             resultTask.text = "Код успешно выполнен."; 
             resultTask.color = Color.green;
             OnTaskComplete?.Invoke();
@@ -161,7 +164,11 @@ public class DynamicCode
 
                 var actualResult = method.Invoke(instance, parameters);
 
-                if (actualResult is Array objectArrayResult)
+                if (actualResult is ValueTuple<int, int> tuple2)
+                {
+                    actualResult = $"{tuple2.Item1}, {tuple2.Item2}";
+                }
+                else if (actualResult is Array objectArrayResult)
                 {
                     actualResult = ConvertToString(objectArrayResult);
                 }

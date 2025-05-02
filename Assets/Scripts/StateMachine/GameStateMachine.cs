@@ -10,7 +10,8 @@ public class GameStateMachine
 
     public event Action<GameStateData> OnChangeState;
 
-    public GameStateMachine(GameState gameState, PauseState pauseState, QuestState questState, LoseState loseState)
+    public GameStateMachine(GameState gameState, PauseState pauseState, 
+        QuestState questState, LoseState loseState, WinState winState)
     {
         
         _states = new Dictionary<GameStateData, IGameState>
@@ -18,7 +19,8 @@ public class GameStateMachine
             { GameStateData.Game, gameState },
             { GameStateData.Pause, pauseState },
             { GameStateData.Quest, questState },
-            { GameStateData.GameOver, loseState }
+            { GameStateData.GameOver, loseState },
+            { GameStateData.Win, winState }
         };
         _reverseStates = _states.ToDictionary(kvp => kvp.Value, kvp => kvp.Key);
     }

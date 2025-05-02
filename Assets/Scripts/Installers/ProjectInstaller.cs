@@ -30,6 +30,7 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<PauseState>().AsSingle();
         Container.Bind<QuestState>().AsSingle();
         Container.Bind<LoseState>().AsSingle();
+        Container.Bind<WinState>().AsSingle();
         
         Container
             .BindInterfacesAndSelfTo<GameStateMachine>()

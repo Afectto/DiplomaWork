@@ -23,10 +23,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a452b9b-4b28-4b72-9f26-3c82095537af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/EndTile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/EndTile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/IInteractableTile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/IInteractableTile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/QuestTile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/QuestTile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/State/WinState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/State/WinState.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts.rar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts.zip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/FightSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/FightSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/PauseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/PauseButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/QuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/QuestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Installers/ProjectInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Installers/ProjectInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/GridSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/GridSetting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/SaveLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/SaveLevelData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/Tile.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileSprites.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileSprites.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TileSprites.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileSprites.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/PlayButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/PlayButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/GameStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/AfterPauseDelay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/AfterPauseDelay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Tasks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +89,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F843D796-055E-4DEA-A447-E7BA073CFF5F/ac/5581231a/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ea3dec1d8b8e407ab69cfcacfa6f928b1cbe00/be/e0b279fe/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/1b/1fe4284b/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/29/495998d4/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/5e/4ae518b0/Task.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/ed/31258e48/RuntimeMethodInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/f7/feff522c/KeyValuePair`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5B813995-9670-4241-9E44-AFC6B56DE16C/3/CSharpCodeProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -66,7 +101,7 @@
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/GameState/GameStateMachine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/Instatters/GameInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../App-0126/Assets/Scripts/Instatters/ProjectInstaller.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/Tile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StateMachine/State/QuestState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Leon_Naming_Android/Assets/Scripts/Entry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ShipilliZovKrovi2/Assets/Scripts/Installers/GamePlayInstaller.cs" root0="SKIP_HIGHLIGHTING" />
@@ -176,10 +211,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15204">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12308">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15204" />
+      <option name="pid" value="12308" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -221,7 +256,9 @@
       <workItem from="1743056068513" duration="247000" />
       <workItem from="1745660728558" duration="9044000" />
       <workItem from="1745765325114" duration="5493000" />
-      <workItem from="1745847699387" duration="2104000" />
+      <workItem from="1745847699387" duration="4147000" />
+      <workItem from="1746164945923" duration="48000" />
+      <workItem from="1746165005649" duration="13993000" />
     </task>
     <servers />
   </component>
@@ -253,43 +290,56 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Pools/Enemy/Enemy.cs</url>
-          <line>80</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Pools\Enemy\Enemy.cs" containingFunctionPresentation="Method 'GeneratePathTo'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs</url>
+          <line>288</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\TileManager.cs" containingFunctionPresentation="Constructor 'TileData'">
             <startOffsets>
-              <option value="2374" />
+              <option value="9261" />
             </startOffsets>
             <endOffsets>
-              <option value="2397" />
+              <option value="9296" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/PathfindingJob.cs</url>
-          <line>19</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\PathfindingJob.cs" containingFunctionPresentation="Method 'FindPath'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs</url>
+          <line>69</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\TileManager.cs" containingFunctionPresentation="Method 'UpdateEndPointTaskData'">
             <startOffsets>
-              <option value="459" />
+              <option value="2601" />
             </startOffsets>
             <endOffsets>
-              <option value="523" />
+              <option value="2659" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/PathfindingJob.cs</url>
-          <line>39</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\PathfindingJob.cs" containingFunctionPresentation="Method 'FindPath'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs</url>
+          <line>84</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Game\Tasks\CodeExecutor.cs" containingFunctionPresentation="Method 'ExecuteCode'">
             <startOffsets>
-              <option value="1343" />
+              <option value="1979" />
             </startOffsets>
             <endOffsets>
-              <option value="1388" />
+              <option value="2037" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="20" />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs</url>
+          <line>240</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Game\Tasks\CodeExecutor.cs" containingFunctionPresentation="Method 'ConvertInputs'">
+            <startOffsets>
+              <option value="7778" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7826" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

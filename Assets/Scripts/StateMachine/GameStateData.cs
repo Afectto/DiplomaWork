@@ -3,5 +3,6 @@
     Game,
     Pause,
     Quest,
-    GameOver
+    GameOver,
+    Win
 }

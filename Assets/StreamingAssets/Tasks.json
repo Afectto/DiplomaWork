@@ -291,7 +291,7 @@
       "baseCode": "\n    public int main(string sentence)\n    {\n        \n    }",
       "tests": [
         {
-          "input": "Привет, как дела?",
+          "input": "Привет как дела?",
           "expected": "3",
           "inputTypes": [
             "string"

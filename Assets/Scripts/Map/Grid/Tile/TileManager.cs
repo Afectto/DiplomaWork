@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -44,6 +45,33 @@ public class TileManager
 
         MarkTile(start, TileType.Start);
         MarkTile(end, TileType.End);
+        
+        var tileEnd = _tiles[end];
+        AddTextToTile(tileEnd, "End", new Vector3(0, 0, 0), 7);
+    }
+    
+    private void AddTextToTile(GameObject tile, string text, Vector3 localPosition, float fontSize = 1f)
+    {
+        GameObject textObject = new GameObject("TileText");
+        textObject.transform.SetParent(tile.transform);
+        textObject.transform.localPosition = localPosition;
+
+        TextMeshPro textMeshPro = textObject.AddComponent<TextMeshPro>();
+        textMeshPro.text = text;
+        textMeshPro.fontSize = fontSize;
+        textMeshPro.alignment = TextAlignmentOptions.Center;
+
+        MeshRenderer meshRenderer = textObject.GetComponent<MeshRenderer>();
+        meshRenderer.sortingOrder = 2;
+    }
+    
+    public void UpdateEndPointTaskData()
+    {
+        var userProgress = SaveSystem.Load<UserProgressInLevel>();
+        var taskProgress = userProgress.GetTaskProgress();
+        Vector2Int end = new Vector2Int(_gridManager.Grid.GetWidth() - 1, _gridManager.Grid.GetHeight() - 1);
+        var tileEnd = _tiles[end];
+        tileEnd.GetComponentInChildren<TextMeshPro>().text = taskProgress.completed + "/" + taskProgress.total;
     }
 
     public void PlaceDangerAndInterestPoints(int dangerPointsCount, int interestPointsCount)
@@ -194,6 +222,7 @@ public class TileManager
             }
             return;
         }
+
         if (_tiles.ContainsKey(position))
         {
             var renderer = _tiles[position].GetComponentInChildren<SpriteRenderer>();
@@ -271,6 +300,16 @@ public class TileManager
                 SetCollider(position.x, position.y, tileData.Type);
                 MarkTile(position, tileData.Type);
             }
-        }
+        }        
+        
+        Vector2Int end = new Vector2Int(_gridManager.Grid.GetWidth() - 1, _gridManager.Grid.GetHeight() - 1);
+        var tileEnd = _tiles[end];
+        AddTextToTile(tileEnd, "End", new Vector3(0, 0, 0), 7);
+        UpdateEndPointTaskData();
+    }
+
+    public bool IsEndPoint(Vector2Int vector2Int)
+    {
+        return _tileData.ContainsKey(vector2Int) && _tileData[vector2Int].Type == TileType.End;
     }
 }

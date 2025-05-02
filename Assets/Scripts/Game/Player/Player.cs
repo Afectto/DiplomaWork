@@ -14,6 +14,7 @@ public class Player : Character
     private GameStateMachine _stateMachine;
     private Animator _animator;
     private PlayerController _playerController;
+    private IInteractableTile _currentInteractable;
 
     public StatDecorator PlayerStats => _playerStats.Stats;
     public GridObject TileTask { get; private set; }
@@ -31,6 +32,18 @@ public class Player : Character
         _playerStats.OnChangeStats += ChangeStats;
     }
 
+    private void Start()
+    {
+        _grid = _mapGenerator.GetGrid();
+        transform.position = _grid.GetWorldPositionByCenterCell(0, 0);
+        var levelData = SaveSystem.Load<LevelData>();
+        if (levelData.IsNeedSave)
+        {
+            Health = levelData.PlayerData.HP;
+            transform.position = levelData.PlayerData.Position;
+        }
+    }
+
     private void ChangeStats(string nameStat)
     {
         if (nameStat == StatsTypeName.Health)
@@ -39,13 +52,7 @@ public class Player : Character
             Health += 0;
         }
     }
-
-    private void Start()
-    {
-        _grid = _mapGenerator.GetGrid();
-        transform.position = _grid.GetWorldPositionByCenterCell(0, 0);
-    }
-
+    
     private void FixedUpdate()
     {
         _playerController.HandleMovement();
@@ -53,9 +60,9 @@ public class Player : Character
 
     private void Update()
     {
-        if (tooltip.gameObject.activeSelf && Input.GetKeyDown(KeyCode.E))
+        if (_currentInteractable != null && Input.GetKeyDown(KeyCode.E))
         {
-            _stateMachine.ChangeState(GameStateData.Quest);
+            _currentInteractable.OnInteract();
         }
     }
 
@@ -63,9 +70,27 @@ public class Player : Character
     {
         GridObject obj = _grid.GetGridObject(pos);
         TileTask = obj;
+
+        _currentInteractable = null;
+
         if (_mapGenerator.IsQuestTile(obj))
         {
+            _currentInteractable = new QuestTile(_stateMachine);
+        }
+        else if (_mapGenerator.IsEndPoint(obj))
+        {
+            var progress = SaveSystem.Load<UserProgressInLevel>();
+            _currentInteractable = new EndTile(_stateMachine, progress);
+        }
+
+        if (_currentInteractable != null)
+        {
             tooltip.gameObject.SetActive(true);
+            tooltip.text = _currentInteractable.GetTooltipText();
+        }
+        else
+        {
+            tooltip.gameObject.SetActive(false);
         }
     }
 
@@ -73,7 +98,7 @@ public class Player : Character
     {
         GridObject obj = _grid.GetGridObject(pos);
         TileTask = null;
-        if (_mapGenerator.IsQuestTile(obj))
+        if (_mapGenerator.IsQuestTile(obj) || _mapGenerator.IsEndPoint(obj))
         {
             tooltip.gameObject.SetActive(false);
         }

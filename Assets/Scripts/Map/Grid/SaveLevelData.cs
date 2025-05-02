@@ -14,7 +14,7 @@ public class SaveLevelData : ISaveData
                 {
                     SettingGrid = new GridSetting(10, 10, 2, offset),
                     MinTasksDifficulty = 1,
-                    MaxTasksDifficulty = 2,
+                    MaxTasksDifficulty = 1,
                     WallCount = 20,
                     DangerPointsCount = 3,
                     InterestPointsCount = 2
@@ -25,7 +25,7 @@ public class SaveLevelData : ISaveData
                 {
                     SettingGrid = new GridSetting(10, 15, 2, offset),
                     MinTasksDifficulty = 1,
-                    MaxTasksDifficulty = 3,
+                    MaxTasksDifficulty = 2,
                     WallCount = 50,
                     DangerPointsCount = 3,
                     InterestPointsCount = 4
