@@ -36,10 +36,10 @@ public class PlayerSkillPoints : MonoBehaviour
         InitialButtons();
         UpdateSkillPointsText();
         var codeExecutor = FindObjectOfType<CodeExecutor>();
-        codeExecutor.OnTaskComplete += (isAlreadyComplete) =>
+        codeExecutor.OnTaskComplete += (isAlreadyComplete, count) =>
         {
             if (isAlreadyComplete) return;   
-            AddSkillPoints(1);
+            AddSkillPoints(count);
         };
     }
 

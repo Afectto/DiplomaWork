@@ -23,7 +23,7 @@ public class QuestController : MonoBehaviour
         closeButton.onClick.AddListener(ClosePanel);
     }
 
-    private async void OnTaskComplete(bool isAlreadyComplete)
+    private async void OnTaskComplete(bool isAlreadyComplete, int i)
     {
         await System.Threading.Tasks.Task.Delay(1000);
         ClosePanel();

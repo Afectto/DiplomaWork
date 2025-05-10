@@ -21,7 +21,7 @@ public class CodeExecutor : MonoBehaviour
     private string _paramInExecute;
     private Task _selectedTask;
 
-    public event Action<bool> OnTaskComplete;
+    public event Action<bool, int> OnTaskComplete;
 
     private void Awake()
     {
@@ -83,7 +83,7 @@ public class DynamicCode
         if (success)
         {
             var userProgress = SaveSystem.Load<UserProgressInLevel>();
-            OnTaskComplete?.Invoke(userProgress.СompletedTasks.Find(progress => progress.taskId == _selectedTask.id).isCompleted);
+            OnTaskComplete?.Invoke(userProgress.СompletedTasks.Find(progress => progress.taskId == _selectedTask.id).isCompleted, _selectedTask.difficulty);
             userProgress.MarkTaskCompleted(_selectedTask.id);
             FindFirstObjectByType<MapGenerator>().UpdateEndPointTaskData();
             resultTask.text = "Код успешно выполнен."; 
