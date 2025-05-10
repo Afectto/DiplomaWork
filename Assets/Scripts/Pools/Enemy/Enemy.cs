@@ -36,7 +36,7 @@ using System;
     
         private bool IsTooFarFromSpawn()
         {
-            return Vector3.Distance(_player.transform.position, _startPosition) > 5f && Vector3.Distance(transform.position, _startPosition) > 0.5f;
+            return Vector3.Distance(_player.transform.position, _startPosition) > 9f && Vector3.Distance(transform.position, _startPosition) > 0.01f;
         }
     
         private void Update()

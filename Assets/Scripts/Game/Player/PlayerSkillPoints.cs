@@ -36,27 +36,32 @@ public class PlayerSkillPoints : MonoBehaviour
         InitialButtons();
         UpdateSkillPointsText();
         var codeExecutor = FindObjectOfType<CodeExecutor>();
-        codeExecutor.OnTaskComplete += () => AddSkillPoints(1);
+        codeExecutor.OnTaskComplete += (isAlreadyComplete) =>
+        {
+            if (isAlreadyComplete) return;   
+            AddSkillPoints(1);
+        };
     }
 
     private void InitialButtons()
     {
-        var playerSkillPointsData = SaveSystem.Load<PlayerSkillPointsData>();
-
-        SetupButton(addArmor, StatsTypeName.Resists, playerSkillPointsData);
-        SetupButton(addHealth, StatsTypeName.Health, playerSkillPointsData);
-        SetupButton(addSpeed, StatsTypeName.MovementSpeed, playerSkillPointsData);
-        SetupButton(addDamage, StatsTypeName.Damage, playerSkillPointsData);
-        SetupButton(addAttackSpeed, StatsTypeName.AttackSpeed, playerSkillPointsData);
+        SetupButton(addArmor, StatsTypeName.Resists);
+        SetupButton(addHealth, StatsTypeName.Health);
+        SetupButton(addSpeed, StatsTypeName.MovementSpeed);
+        SetupButton(addDamage, StatsTypeName.Damage);
+        SetupButton(addAttackSpeed, StatsTypeName.AttackSpeed);
     }
 
-    private void SetupButton(PlayerStatsItem button, string statType, PlayerSkillPointsData playerSkillPointsData)
+    private void SetupButton(PlayerStatsItem button, string statType)
     {
+        var playerSkillPointsData = SaveSystem.Load<PlayerSkillPointsData>();
         button.SetText(playerSkillPointsData.GetStatsCount(statType), statType);
         button.OnClick += () =>
         {
             UseSkillPoints(1, statType);
             UpdateSkillPointsText();
+            var skillPointsData = SaveSystem.Load<PlayerSkillPointsData>();
+            button.SetText(skillPointsData.GetStatsCount(statType), statType);
         };
     }
     

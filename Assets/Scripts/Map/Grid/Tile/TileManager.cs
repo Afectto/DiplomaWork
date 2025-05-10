@@ -238,6 +238,7 @@ public class TileManager
             if (_tileData.ContainsKey(position))
             {
                 _tileData[position].Type = type;
+                _tileData[position].IsWalkable = type != TileType.Wall;
             }
         }
     }

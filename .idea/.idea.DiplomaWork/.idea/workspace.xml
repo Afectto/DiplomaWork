@@ -23,24 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a452b9b-4b28-4b72-9f26-3c82095537af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPointsData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPointsData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerStatsItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerStatsItem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DiplomaWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BasePlayerStats.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BasePlayerStats.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/Hit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/Hit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/BasePlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/BasePlayerStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/IPlayerStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/IPlayerStat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/StatsTypeName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/Info/StatsTypeName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/PlayerStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/StatDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/Stat/StatDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/PlayButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/PlayButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Player/PlayerSkillPoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/QuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tasks/QuestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +64,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EA3DEC1D-8B8E-407A-B69C-FCACFA6F928B/88/d7015903/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EA3DEC1D-8B8E-407A-B69C-FCACFA6F928B/ed/e49da016/NativeArray`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F843D796-055E-4DEA-A447-E7BA073CFF5F/ac/5581231a/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ea3dec1d8b8e407ab69cfcacfa6f928b1cbe00/8f/260728e7/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ea3dec1d8b8e407ab69cfcacfa6f928b1cbe00/be/e0b279fe/SetupCoroutine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/1b/1fe4284b/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/29/495998d4/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/5e/4ae518b0/Task.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/d8/e5e9d05c/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/ed/31258e48/RuntimeMethodInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f843d796055e4deaa447e7ba073cff5f46ae00/f7/feff522c/KeyValuePair`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5B813995-9670-4241-9E44-AFC6B56DE16C/3/CSharpCodeProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -193,10 +191,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12308">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16008">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="12308" />
+      <option name="pid" value="16008" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -240,7 +238,8 @@
       <workItem from="1745765325114" duration="5493000" />
       <workItem from="1745847699387" duration="4147000" />
       <workItem from="1746164945923" duration="48000" />
-      <workItem from="1746165005649" duration="25372000" />
+      <workItem from="1746165005649" duration="29972000" />
+      <workItem from="1746626962423" duration="9857000" />
     </task>
     <servers />
   </component>
@@ -272,69 +271,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs</url>
-          <line>288</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\TileManager.cs" containingFunctionPresentation="Constructor 'TileData'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs</url>
+          <line>83</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\TaskManager.cs" containingFunctionPresentation="Method 'LoadLevelData'">
             <startOffsets>
-              <option value="9261" />
+              <option value="2580" />
             </startOffsets>
             <endOffsets>
-              <option value="9296" />
+              <option value="2622" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/Tile/TileManager.cs</url>
-          <line>69</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\TileManager.cs" containingFunctionPresentation="Method 'UpdateEndPointTaskData'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Map/Grid/TaskManager.cs</url>
+          <line>34</line>
+          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Map\Grid\TaskManager.cs" containingFunctionPresentation="Method 'AssignTaskToTile'">
             <startOffsets>
-              <option value="2601" />
+              <option value="876" />
             </startOffsets>
             <endOffsets>
-              <option value="2659" />
+              <option value="910" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs</url>
-          <line>84</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Game\Tasks\CodeExecutor.cs" containingFunctionPresentation="Method 'ExecuteCode'">
-            <startOffsets>
-              <option value="1979" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2037" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/Tasks/CodeExecutor.cs</url>
-          <line>240</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Game\Tasks\CodeExecutor.cs" containingFunctionPresentation="Method 'ConvertInputs'">
-            <startOffsets>
-              <option value="7778" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7826" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/FightSystem/Hit.cs</url>
-          <line>25</line>
-          <properties documentPath="D:\UnityProgram\DiplomaWork\Assets\Scripts\Game\FightSystem\Hit.cs" containingFunctionPresentation="Method 'OnTriggerEnter2D'">
-            <startOffsets>
-              <option value="646" />
-            </startOffsets>
-            <endOffsets>
-              <option value="700" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="34" />
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

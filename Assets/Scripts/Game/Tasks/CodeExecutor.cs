@@ -21,7 +21,7 @@ public class CodeExecutor : MonoBehaviour
     private string _paramInExecute;
     private Task _selectedTask;
 
-    public event Action OnTaskComplete;
+    public event Action<bool> OnTaskComplete;
 
     private void Awake()
     {
@@ -83,11 +83,11 @@ public class DynamicCode
         if (success)
         {
             var userProgress = SaveSystem.Load<UserProgressInLevel>();
+            OnTaskComplete?.Invoke(userProgress.СompletedTasks.Find(progress => progress.taskId == _selectedTask.id).isCompleted);
             userProgress.MarkTaskCompleted(_selectedTask.id);
             FindFirstObjectByType<MapGenerator>().UpdateEndPointTaskData();
             resultTask.text = "Код успешно выполнен."; 
             resultTask.color = Color.green;
-            OnTaskComplete?.Invoke();
         }
     }
     

@@ -23,7 +23,7 @@ public class QuestController : MonoBehaviour
         closeButton.onClick.AddListener(ClosePanel);
     }
 
-    private async void OnTaskComplete()
+    private async void OnTaskComplete(bool isAlreadyComplete)
     {
         await System.Threading.Tasks.Task.Delay(1000);
         ClosePanel();
@@ -37,7 +37,7 @@ public class QuestController : MonoBehaviour
 
     private void OnChangeState(GameStateData state)
     {
-        if (state == GameStateData.Quest)
+        if (state == GameStateData.Quest && _player.TileTask != null)
         {
             gameObject.SetActive(true);
             var gridObject = _player.TileTask;

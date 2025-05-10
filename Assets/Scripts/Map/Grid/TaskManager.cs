@@ -30,7 +30,7 @@ public class TaskManager
         }
     }
     
-    public void AssignTaskToTile(Vector2Int position, Task task)
+    private void AssignTaskToTile(Vector2Int position, Task task)
     {
         if (!_tasks.ContainsKey(position))
         {

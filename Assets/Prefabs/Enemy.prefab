@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1955739403690252251}
   - component: {fileID: 7984360959670676096}
   - component: {fileID: 6719821424399794759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 2371152779476447899}
   - component: {fileID: 1120747101354522407}
   - component: {fileID: 1979096411070335788}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6954365808106108097}
   - component: {fileID: 715547170469007159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 4207837565232526300}
   - component: {fileID: 4218342939017054640}
   - component: {fileID: 3997765084662139721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 4805198766562434499}
   - component: {fileID: 4471116473513453547}
   - component: {fileID: 6361902823038500198}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

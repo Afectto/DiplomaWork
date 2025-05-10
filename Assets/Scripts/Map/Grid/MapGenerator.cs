@@ -61,6 +61,8 @@ public class MapGenerator : MonoBehaviour
         _tileManager.LoadLevelData(levelData.MapConfiguration);
         _taskManager.LoadLevelData(levelData.Tasks);
         CreateBoundaryColliders();
+        SetTileData();
+        UpdateEndPointTaskData();
     }
 
     private void LoadLevelSettings(int level)
